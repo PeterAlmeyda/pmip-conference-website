@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- ============================================================
+     CONFERENCE CONFIGURATION — UPDATE THIS BLOCK EACH YEAR.
+     This is the ONLY place you need to change year/date info.
+     ============================================================ -->
+<script>
+  const CONFERENCE = {
+    year:        "2026",
+    theme:       "AI-Powered Project Management",
+    date:        "November 6, 2026",
+    venue:       "Boston University · Metropolitan College<br>Boston, MA (Venue TBD)",
+    format:      "In-person · Open to Registrants",
+    hostedBy:    "Dept. of Administrative Sciences, BU MET",
+    registerURL: "registration.html"
+  };
+</script>
+
+<title>Announcements | PMiP Conference · Boston University</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   MASTER STYLESHEET — PMiP Conference Website
+   DO NOT MODIFY THIS SECTION without team approval.
+   ============================================================ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bu-red:#CC0000;
+  --bu-dark:#1a1a1a;
+  --bu-gray:#4a4a4a;
+  --bu-light:#f5f5f5;
+  --bu-border:#ddd;
+  --bu-gold:#8a7144;
+  --white:#fff;
+  --link:#CC0000;
+}
+body{font-family:'Open Sans',sans-serif;font-size:15px;color:#333;background:#fff;line-height:1.6;}
+.topbar{background:var(--bu-dark);padding:6px 0;}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.topbar a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;}
+.topbar a:hover{color:#fff;}
+.topbar .sep{color:rgba(255,255,255,0.25);margin:0 10px;}
+header{background:var(--bu-red);padding:0;}
+.header-inner{max-width:1100px;margin:0 auto;padding:18px 24px 16px;display:flex;align-items:center;gap:18px;}
+.bu-shield{width:42px;height:42px;background:white;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bu-shield svg{width:28px;height:28px;}
+.site-title{color:white;}
+.site-title .college{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;margin-bottom:2px;}
+.site-title .name{font-family:'Merriweather',serif;font-size:19px;font-weight:700;line-height:1.2;}
+.site-title .name span{font-weight:400;font-style:italic;}
+nav{background:#222;border-bottom:3px solid var(--bu-red);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+nav ul{display:flex;list-style:none;}
+nav ul li{position:relative;}
+nav ul li a{display:block;color:rgba(255,255,255,0.82);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.04em;padding:13px 16px;transition:background 0.15s,color 0.15s;}
+nav ul li a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+nav ul li a.active{color:#fff;background:var(--bu-red);}
+.nav-cta a{background:var(--bu-red);color:white!important;padding:8px 18px!important;border-radius:2px;font-size:12px!important;}
+.nav-cta a:hover{background:#aa0000!important;}
+.hero{position:relative;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);overflow:hidden;padding:56px 24px 48px;}
+.hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Merriweather',serif;font-size:180px;font-weight:700;color:rgba(255,255,255,0.025);white-space:nowrap;pointer-events:none;letter-spacing:-0.05em;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.hero-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bu-red);margin-bottom:14px;background:rgba(204,0,0,0.1);display:inline-block;padding:4px 12px;border-left:3px solid var(--bu-red);}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(24px,4vw,40px);font-weight:700;color:#fff;line-height:1.2;max-width:700px;margin-bottom:12px;}
+.hero h1 em{color:#e8c97e;font-style:italic;font-weight:400;}
+.hero-sub{font-size:14.5px;color:rgba(255,255,255,0.65);max-width:620px;line-height:1.7;margin-bottom:28px;font-weight:300;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:2px;padding:5px 14px;font-size:11.5px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;}
+.pill.red{background:rgba(204,0,0,0.15);border-color:rgba(204,0,0,0.4);color:#f5a0a0;}
+.page-wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+.two-col{display:grid;grid-template-columns:1fr 280px;gap:40px;padding:40px 0 60px;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}}
+.section-title{font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;padding-bottom:10px;border-bottom:3px solid var(--bu-red);margin-top:36px;}
+.section-title:first-child{margin-top:0;}
+.section-intro{font-size:14.5px;color:var(--bu-gray);line-height:1.75;margin-bottom:28px;margin-top:12px;}
+.about-block{margin-bottom:36px;}
+.about-block p{font-size:14.5px;line-height:1.8;color:#444;margin-bottom:14px;}
+.about-block p strong{color:var(--bu-dark);}
+.highlight-box{background:var(--bu-light);border-left:4px solid var(--bu-red);padding:18px 20px;margin-bottom:28px;border-radius:0 4px 4px 0;}
+.highlight-box p{font-size:14px;color:#444;line-height:1.75;margin-bottom:0;}
+.highlight-box p+p{margin-top:10px;}
+.sidebar-box{border:1px solid var(--bu-border);border-top:3px solid var(--bu-red);padding:18px 20px;margin-bottom:22px;background:#fff;}
+.sidebar-box h4{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--bu-dark);margin-bottom:14px;}
+.sidebar-box p{font-size:13px;color:#555;line-height:1.65;margin-bottom:10px;}
+.sidebar-box ul{list-style:none;padding:0;}
+.sidebar-box ul li{font-size:13px;color:#555;padding:6px 0;border-bottom:1px solid #eee;display:flex;align-items:flex-start;gap:8px;}
+.sidebar-box ul li:last-child{border-bottom:none;}
+.sidebar-box ul li::before{content:'›';color:var(--bu-red);font-weight:700;font-size:15px;margin-top:-1px;}
+.register-btn{display:block;background:var(--bu-red);color:white;text-align:center;padding:11px 16px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-decoration:none;border-radius:2px;text-transform:uppercase;margin-top:12px;transition:background 0.15s;}
+.register-btn:hover{background:#aa0000;}
+.info-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.info-row .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--bu-red);min-width:60px;margin-top:1px;}
+.info-row .val{font-size:13px;color:#444;line-height:1.5;}
+footer{background:var(--bu-dark);color:rgba(255,255,255,0.5);padding:28px 24px;font-size:12px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;margin-right:18px;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+.footer-copy{font-size:11px;}
+
+/* ============================================================
+   PAGE-SPECIFIC STYLES — Announcements Board
+   ============================================================ */
+
+/* Filter buttons */
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;margin-top:16px;}
+.filter-btn{font-size:12px;font-weight:600;padding:5px 14px;border-radius:2px;border:1px solid var(--bu-border);background:#fff;color:var(--bu-gray);cursor:pointer;letter-spacing:0.03em;transition:all 0.15s;}
+.filter-btn:hover{border-color:var(--bu-red);color:var(--bu-red);}
+.filter-btn.active{background:var(--bu-red);color:#fff;border-color:var(--bu-red);}
+
+/* Announcement board */
+.announce-board{margin-bottom:36px;}
+.announce-entry{display:grid;grid-template-columns:90px 1fr;gap:0;border-bottom:1px solid var(--bu-border);padding:16px 0;align-items:start;}
+.announce-entry:first-child{border-top:1px solid var(--bu-border);}
+.announce-entry.hidden{display:none;}
+
+/* Date column */
+.date-col{padding-right:16px;}
+.date-day{font-size:24px;font-weight:700;color:var(--bu-dark);line-height:1;font-family:'Merriweather',serif;}
+.date-month{font-size:10.5px;color:var(--bu-gray);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;}
+
+/* Content column */
+.entry-content{display:flex;flex-direction:column;gap:5px;}
+.entry-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 10px;border-radius:2px;letter-spacing:0.06em;text-transform:uppercase;width:fit-content;}
+.entry-badge.urgent{background:#fde8e8;color:#990000;}
+.entry-badge.speaker{background:#fdf3dc;color:#7a6020;}
+.entry-badge.general{background:#f0f0f0;color:#555;}
+.entry-badge.registration{background:#e4edf9;color:#1a4a8a;}
+.entry-badge.recap{background:#e5f2e5;color:#2a6a2a;}
+.entry-badge.deadline{background:#fdf3dc;color:#7a6020;}
+.entry-badge.venue{background:#f0eaf8;color:#5a2a8a;}
+.entry-title{font-size:14.5px;font-weight:600;color:var(--bu-dark);line-height:1.35;}
+.entry-desc{font-size:13px;color:#555;line-height:1.6;}
+
+/* Important dates table */
+.dates-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:16px;margin-bottom:36px;}
+.dates-table th{background:var(--bu-dark);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+.dates-table td{padding:11px 14px;border-bottom:1px solid var(--bu-border);vertical-align:top;}
+.dates-table tr:hover td{background:#fafafa;}
+.dates-table .date-cell{color:var(--bu-red);font-weight:600;white-space:nowrap;width:160px;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>
+      <a href="#">Metropolitan College</a>
+      <span class="sep">|</span>
+      <a href="#">Boston University</a>
+      <span class="sep">|</span>
+      <a href="contact.html">Contact Us</a>
+    </span>
+    <a href="#">Livestream ›</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="bu-shield">
+      <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="44" rx="2" fill="#CC0000"/>
+        <text x="20" y="30" text-anchor="middle" fill="white" font-family="serif" font-size="20" font-weight="bold">BU</text>
+      </svg>
+    </div>
+    <div class="site-title">
+      <div class="college">Boston University · Metropolitan College</div>
+      <div class="name">Symposium on <span>Project Management in Practice</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="speakers.html">Speakers</a></li>
+      <li><a href="index.html">20th Anniv Forum</a></li>
+      <li><a href="industry-board.html">Industry Board</a></li>
+      <li><a class="active" href="announcements.html">Announcements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+    <ul>
+      <li class="nav-cta"><a href="registration.html">Register ›</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-text">NEWS</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">PMiP · 20th Anniversary · 2026</div>
+    <h1>Announcements &amp; <em>Updates</em></h1>
+    <p class="hero-sub">Stay up to date with the latest news, schedule changes, speaker announcements, and important deadlines for the 2026 PMiP Conference.</p>
+    <div class="hero-pills">
+      <span class="pill">November 6, 2026</span>
+      <span class="pill">AI-Powered Project Management</span>
+      <span class="pill">BU Metropolitan College</span>
+      <span class="pill red">Registration Opening Soon</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
+  <div class="two-col">
+
+    <!-- LEFT: MAIN CONTENT -->
+    <div class="main-col">
+
+      <!-- SAVE THE DATE CALLOUT -->
+      <div class="highlight-box" style="margin-top:0;">
+        <p><strong>Save the Date — November 6, 2026.</strong> The 20th Anniversary PMiP Conference is confirmed. This year's theme is <strong>AI-Powered Project Management</strong> with tracks on Leadership, Tech, and Strategy. Eventbrite registration and the full program schedule will be available shortly.</p>
+        <p>Questions? Contact the conference committee at <a href="mailto:yolandat@bu.edu" style="color:var(--bu-red);font-weight:600;">yolandat@bu.edu</a></p>
+      </div>
+
+      <!-- CALL FOR PAPERS -->
+      <div class="section-title">Call for Papers</div>
+      <p class="section-intro">Metropolitan College invites submissions for the 2026 PMiP Annual Conference Proceedings — <em>Frontiers of Project Management</em>. High-quality applied and scholarly contributions will be reviewed and presented at the conference.</p>
+      <div class="about-block">
+        <p><strong>Who should submit?</strong> Faculty, qualified graduate students, and industry practitioners presenting at the conference are all encouraged to submit. Priority for acceptance will be given to in-person attendees and presenters.</p>
+        <p><strong>Submission topics</strong> include but are not limited to: Artificial Intelligence in Project Management, Ethics and Professional Responsibility, Construction Management & Technology, Digital Twins, Agile and Hybrid Methodologies, Project Risk Management, Leadership and Communication, Global and Cross-Cultural Environments, and Program & Portfolio Management.</p>
+        <p><strong>Submission guidelines:</strong> Abstracts of 150–250 words are required for initial approval. Full papers must be 6–12 pages in APA format, submitted electronically in Microsoft Word. All submissions undergo editorial review. Accepted papers will be published in the 2026 PMiP Conference Proceedings and selected papers may be assigned DOIs.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Abstract Deadline: July 20, 2026 &nbsp;·&nbsp; Full Paper Deadline: August 4, 2026</strong></p>
+        <p>Submit electronically: <a href="https://www.dropbox.com/request/GT8huBmbr1HHZTbzweD6" target="_blank" style="color:var(--bu-red);font-weight:600;">Click here to upload ›</a> &nbsp;·&nbsp; File upload pin: <strong>PMIP2026</strong></p>
+        <p style="margin-top:8px;font-size:13px;color:#666;">Rich Maltzman & Yolande Athaide, Co-Chairs PMiP 2026 · Boston University, Metropolitan College</p>
+      </div>
+
+      <!-- ANNOUNCEMENTS BOARD -->
+      <div class="section-title">Latest Announcements</div>
+      <p class="section-intro">Updates are posted as information becomes available. Check back regularly for schedule changes, speaker news, and registration details.</p>
+
+      <!-- FILTER BUTTONS -->
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterEntries('all')">All</button>
+        <button class="filter-btn" onclick="filterEntries('urgent')">Urgent</button>
+        <button class="filter-btn" onclick="filterEntries('speaker')">Speakers</button>
+        <button class="filter-btn" onclick="filterEntries('registration')">Registration</button>
+        <button class="filter-btn" onclick="filterEntries('deadline')">Deadlines</button>
+        <button class="filter-btn" onclick="filterEntries('general')">General</button>
+        <button class="filter-btn" onclick="filterEntries('recap')">Recaps</button>
+      </div>
+
+      <!-- ANNOUNCEMENT ENTRIES -->
+      <div class="announce-board">
+
+        <div class="announce-entry" data-type="general">
+          <div class="date-col"><div class="date-day">06</div><div class="date-month">Jun 2026</div></div>
+          <div class="entry-content">
+            <span class="entry-badge general">General</span>
+            <div class="entry-title">20th Anniversary conference date confirmed — November 6, 2026</div>
+            <div class="entry-desc">The 2026 PMiP Conference has been moved from June to November to focus on student excellence and maximize student participation. Theme: AI-Powered Project Management.</div>
+          </div>
+        </div>
+
+        <div class="announce-entry" data-type="venue">
+          <div class="date-col"><div class="date-day">06</div><div class="date-month">Jun 2026</div></div>
+          <div class="entry-content">
+            <span class="entry-badge venue">Venue</span>
+            <div class="entry-title">Venue to be confirmed — two locations under consideration</div>
+            <div class="entry-desc">The conference will be held at either the Center for Computing & Data Sciences (the "Jenga building") or BU MET headquarters at 1010 Commonwealth Avenue. Final venue will be announced shortly.</div>
+          </div>
+        </div>
+
+        <div class="announce-entry" data-type="registration">
+          <div class="date-col"><div class="date-day">06</div><div class="date-month">Jun 2026</div></div>
+          <div class="entry-content">
+            <span class="entry-badge registration">Registration</span>
+            <div class="entry-title">Eventbrite registration opening soon</div>
+            <div class="entry-desc">Online registration for the 20th Anniversary PMiP Conference will be available shortly via Eventbrite. Check back here or follow BU MET for the announcement.</div>
+          </div>
+        </div>
+
+        <div class="announce-entry" data-type="deadline">
+          <div class="date-col"><div class="date-day">20</div><div class="date-month">Jul 2026</div></div>
+          <div class="entry-content">
+            <span class="entry-badge deadline">Deadline</span>
+            <div class="entry-title">Call for Papers — Abstract submission deadline July 20</div>
+            <div class="entry-desc">Submissions are invited for the 2026 PMiP Annual Conference Proceedings (Vol. — Frontiers of Project Management). Abstracts of 150–250 words due July 20. Full papers (6–12 pages, APA format) due August 4.</div>
+          </div>
+        </div>
+
+        <div class="announce-entry" data-type="deadline">
+          <div class="date-col"><div class="date-day">04</div><div class="date-month">Aug 2026</div></div>
+          <div class="entry-content">
+            <span class="entry-badge deadline">Deadline</span>
+            <div class="entry-title">Full paper submission deadline — August 4, 2026</div>
+            <div class="entry-desc">Final papers must be 6–12 pages in APA format and submitted electronically in Microsoft Word. Accepted papers will be published in the 2026 PMiP Conference Proceedings. Selected papers may be assigned DOIs.</div>
+          </div>
+        </div>
+
+        <div class="announce-entry" data-type="recap">
+          <div class="date-col"><div class="date-day">14</div><div class="date-month">Jun 2025</div></div>
+          <div class="entry-content">
+            <span class="entry-badge recap">Recap</span>
+            <div class="entry-title">19th Annual PMiP Conference recap — AI, Construction & the Built Environment</div>
+            <div class="entry-desc">BU MET held its 19th annual PMiP Conference on June 13–14, 2025 at the Center for Computing and Data Science. Field leaders and program luminaries explored AI, construction, and the built environment. Full recap available on the BU MET website.</div>
+          </div>
+        </div>
+
+      </div><!-- end announce-board -->
+
+      <!-- IMPORTANT DATES -->
+      <div class="section-title">Important Dates</div>
+      <p class="section-intro">Key deadlines and milestones for the 2026 PMiP Conference.</p>
+      <table class="dates-table">
+        <thead>
+          <tr><th style="width:180px;">Date</th><th>Milestone</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="date-cell">July 20, 2026</td><td><div style="font-weight:600;color:var(--bu-dark);">Abstract Submission Deadline</div><div style="font-size:12.5px;color:#666;">150–250 word abstracts for conference proceedings</div></td></tr>
+          <tr><td class="date-cell">August 4, 2026</td><td><div style="font-weight:600;color:var(--bu-dark);">Full Paper Submission Deadline</div><div style="font-size:12.5px;color:#666;">6–12 pages, APA format, Microsoft Word</div></td></tr>
+          <tr><td class="date-cell">TBD</td><td><div style="font-weight:600;color:var(--bu-dark);">Registration Opens</div><div style="font-size:12.5px;color:#666;">Eventbrite registration link to be announced</div></td></tr>
+          <tr><td class="date-cell">TBD</td><td><div style="font-weight:600;color:var(--bu-dark);">Program Schedule Published</div><div style="font-size:12.5px;color:#666;">Full agenda and speaker lineup to be announced</div></td></tr>
+          <tr><td class="date-cell">November 6, 2026</td><td><div style="font-weight:600;color:var(--bu-dark);">20th Annual PMiP Conference</div><div style="font-size:12.5px;color:#666;">AI-Powered Project Management · BU Metropolitan College</div></td></tr>
+          <tr><td class="date-cell">November 6, 2026</td><td><div style="font-weight:600;color:var(--bu-dark);">Conference Proceedings Released</div><div style="font-size:12.5px;color:#666;">2026 Volume — Frontiers of Project Management</div></td></tr>
+        </tbody>
+      </table>
+
+    </div><!-- end main-col -->
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h4>Event Details</h4>
+        <div class="info-row"><div class="label">Date</div><div class="val" id="conf-date"></div></div>
+        <div class="info-row"><div class="label">Venue</div><div class="val" id="conf-venue"></div></div>
+        <div class="info-row"><div class="label">Theme</div><div class="val" id="conf-theme"></div></div>
+        <div class="info-row"><div class="label">Format</div><div class="val" id="conf-format"></div></div>
+        <div class="info-row"><div class="label">Hosted by</div><div class="val" id="conf-host"></div></div>
+        <a class="register-btn" id="conf-register" href="registration.html">Register / RSVP ›</a>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html" style="color:inherit;text-decoration:none;">About the PMiP Conference</a></li>
+          <li><a href="agenda.html" style="color:inherit;text-decoration:none;">Full Session Agenda</a></li>
+          <li><a href="speakers.html" style="color:inherit;text-decoration:none;">Distinguished Speakers</a></li>
+          <li><a href="industry-board.html" style="color:inherit;text-decoration:none;">Industry Board Members</a></li>
+          <li><a href="index.html" style="color:inherit;text-decoration:none;">20th Anniversary Forum</a></li>
+          <li><a href="registration.html" style="color:inherit;text-decoration:none;">Register for the Conference</a></li>
+          <li><a href="contact.html" style="color:inherit;text-decoration:none;">Contact the Committee</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box" style="border-top-color:#8a7144;">
+        <h4>Contact</h4>
+        <p>Questions about the conference or announcements? Reach out to the committee directly.</p>
+        <p><a href="mailto:yolandat@bu.edu" style="color:var(--bu-red);font-size:13px;font-weight:600;">yolandat@bu.edu</a></p>
+        <p style="font-size:12px;color:#888;">Yolande Athaide, Co-Chair PMiP 2026</p>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#">Metropolitan College</a>
+      <a href="#">Boston University</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="footer-copy">© Boston University. All rights reserved. www.bu.edu &nbsp;·&nbsp; Prototype — PMiP Group Project</div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     CONFERENCE CONFIG POPULATION SCRIPT — Do not modify.
+     ============================================================ -->
+<script>
+  document.getElementById("conf-date").textContent    = CONFERENCE.date;
+  document.getElementById("conf-venue").innerHTML     = CONFERENCE.venue;
+  document.getElementById("conf-theme").textContent   = CONFERENCE.theme;
+  document.getElementById("conf-format").textContent  = CONFERENCE.format;
+  document.getElementById("conf-host").textContent    = CONFERENCE.hostedBy;
+  document.getElementById("conf-register").href       = CONFERENCE.registerURL;
+  document.querySelectorAll(".conf-year").forEach(el => el.textContent = CONFERENCE.year);
+</script>
+
+<!-- ============================================================
+     FILTER SCRIPT — Filters announcement entries by badge type
+     ============================================================ -->
+<script>
+  function filterEntries(type) {
+    const entries = document.querySelectorAll('.announce-entry');
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    entries.forEach(entry => {
+      if (type === 'all' || entry.dataset.type === type) {
+        entry.classList.remove('hidden');
+      } else {
+        entry.classList.add('hidden');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

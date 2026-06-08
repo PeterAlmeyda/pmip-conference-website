@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>20th Anniversary Vanguard Forum | PMiP Symposium</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bu-red:#CC0000;
+  --bu-dark:#1a1a1a;
+  --bu-gray:#4a4a4a;
+  --bu-light:#f5f5f5;
+  --bu-border:#ddd;
+  --bu-gold:#8a7144;
+  --white:#fff;
+  --link:#CC0000;
+}
+body{font-family:'Open Sans',sans-serif;font-size:15px;color:#333;background:#fff;line-height:1.6;}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--bu-dark);padding:6px 0;}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.topbar a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;}
+.topbar a:hover{color:#fff;}
+.topbar .sep{color:rgba(255,255,255,0.25);margin:0 10px;}
+
+/* ── SITE HEADER ── */
+header{background:var(--bu-red);padding:0;}
+.header-inner{max-width:1100px;margin:0 auto;padding:18px 24px 16px;display:flex;align-items:center;gap:18px;}
+.bu-shield{width:42px;height:42px;background:white;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bu-shield svg{width:28px;height:28px;}
+.site-title{color:white;}
+.site-title .college{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;margin-bottom:2px;}
+.site-title .name{font-family:'Merriweather',serif;font-size:19px;font-weight:700;line-height:1.2;}
+.site-title .name span{font-weight:400;font-style:italic;}
+
+/* ── NAV ── */
+nav{background:#222;border-bottom:3px solid var(--bu-red);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+nav ul{display:flex;list-style:none;}
+nav ul li{position:relative;}
+nav ul li a{display:block;color:rgba(255,255,255,0.82);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.04em;padding:13px 16px;transition:background 0.15s,color 0.15s;}
+nav ul li a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+nav ul li a.active{color:#fff;background:var(--bu-red);}
+.nav-cta a{background:var(--bu-red);color:white!important;padding:8px 18px!important;border-radius:2px;font-size:12px!important;}
+.nav-cta a:hover{background:#aa0000!important;}
+
+/* ── HERO BANNER ── */
+.hero{position:relative;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);overflow:hidden;padding:56px 24px 48px;}
+.hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Merriweather',serif;font-size:180px;font-weight:700;color:rgba(255,255,255,0.025);white-space:nowrap;pointer-events:none;letter-spacing:-0.05em;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.hero-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bu-red);margin-bottom:14px;background:rgba(204,0,0,0.1);display:inline-block;padding:4px 12px;border-left:3px solid var(--bu-red);}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(24px,4vw,40px);font-weight:700;color:#fff;line-height:1.2;max-width:700px;margin-bottom:12px;}
+.hero h1 em{color:#e8c97e;font-style:italic;font-weight:400;}
+.hero-sub{font-size:14.5px;color:rgba(255,255,255,0.65);max-width:620px;line-height:1.7;margin-bottom:28px;font-weight:300;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:2px;padding:5px 14px;font-size:11.5px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;}
+.pill.red{background:rgba(204,0,0,0.15);border-color:rgba(204,0,0,0.4);color:#f5a0a0;}
+
+/* ── PAGE LAYOUT ── */
+.page-wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+.two-col{display:grid;grid-template-columns:1fr 280px;gap:40px;padding:40px 0 60px;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}}
+
+/* ── SECTION TITLES ── */
+.section-title{font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;padding-bottom:10px;border-bottom:3px solid var(--bu-red);}
+.section-intro{font-size:14.5px;color:var(--bu-gray);line-height:1.75;margin-bottom:28px;}
+
+/* ── ABOUT BLOCK ── */
+.about-block{margin-bottom:36px;}
+.about-block p{font-size:14.5px;line-height:1.8;color:#444;margin-bottom:14px;}
+.about-block p strong{color:var(--bu-dark);}
+
+/* ── SESSIONS ── */
+.sessions-list{margin-bottom:36px;}
+.session-item{border:1px solid var(--bu-border);border-left:4px solid var(--bu-red);border-radius:0 4px 4px 0;padding:18px 20px;margin-bottom:14px;background:#fff;}
+.session-item:nth-child(even){border-left-color:#8a7144;}
+.session-num{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--bu-gray);margin-bottom:5px;}
+.session-item h3{font-family:'Merriweather',serif;font-size:15.5px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;line-height:1.35;}
+.session-item p{font-size:13.5px;color:#555;line-height:1.65;margin-bottom:10px;}
+.session-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.tag{font-size:11px;padding:2px 10px;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+.tag.time{background:#f0f0f0;color:#555;}
+.tag.type{background:#FEE;color:var(--bu-red);border:1px solid rgba(204,0,0,0.2);}
+.tag.special{background:#fdf6e3;color:#7a6020;border:1px solid rgba(138,113,68,0.25);}
+
+/* ── AGENDA TABLE ── */
+.agenda-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:36px;}
+.agenda-table th{background:var(--bu-dark);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+.agenda-table td{padding:11px 14px;border-bottom:1px solid var(--bu-border);vertical-align:top;}
+.agenda-table tr:hover td{background:#fafafa;}
+.agenda-table .time-col{color:var(--bu-red);font-weight:600;white-space:nowrap;width:100px;}
+.agenda-table .event-title{font-weight:600;color:var(--bu-dark);margin-bottom:2px;}
+.agenda-table .event-detail{color:#666;font-size:12.5px;}
+.agenda-table tr.header-row td{background:#f5f5f5;font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--bu-gray);padding:8px 14px;}
+
+/* ── SIDEBAR ── */
+.sidebar{}
+.sidebar-box{border:1px solid var(--bu-border);border-top:3px solid var(--bu-red);padding:18px 20px;margin-bottom:22px;background:#fff;}
+.sidebar-box h4{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--bu-dark);margin-bottom:14px;}
+.sidebar-box p{font-size:13px;color:#555;line-height:1.65;margin-bottom:10px;}
+.sidebar-box ul{list-style:none;padding:0;}
+.sidebar-box ul li{font-size:13px;color:#555;padding:6px 0;border-bottom:1px solid #eee;display:flex;align-items:flex-start;gap:8px;}
+.sidebar-box ul li:last-child{border-bottom:none;}
+.sidebar-box ul li::before{content:'›';color:var(--bu-red);font-weight:700;font-size:15px;margin-top:-1px;}
+.register-btn{display:block;background:var(--bu-red);color:white;text-align:center;padding:11px 16px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-decoration:none;border-radius:2px;text-transform:uppercase;margin-top:12px;transition:background 0.15s;}
+.register-btn:hover{background:#aa0000;}
+.info-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.info-row .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--bu-red);min-width:60px;margin-top:1px;}
+.info-row .val{font-size:13px;color:#444;line-height:1.5;}
+
+/* ── SPEAKERS GRID ── */
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:36px;}
+.speaker-card{border:1px solid var(--bu-border);padding:16px;text-align:center;background:#fff;transition:box-shadow 0.15s;}
+.speaker-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+.avatar{width:56px;height:56px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;}
+.av-red{background:#fde8e8;color:var(--bu-red);}
+.av-gray{background:#e8e8e8;color:#444;}
+.av-gold{background:#fdf3dc;color:#7a6020;}
+.av-blue{background:#e4edf9;color:#1a4a8a;}
+.av-green{background:#e5f2e5;color:#2a6a2a;}
+.speaker-name{font-weight:700;font-size:13.5px;color:var(--bu-dark);margin-bottom:3px;}
+.speaker-role{font-size:12px;color:#666;line-height:1.4;margin-bottom:8px;}
+.cohort-badge{display:inline-block;font-size:10.5px;padding:2px 10px;background:#f0f0f0;color:#555;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+.cohort-badge.board{background:#FEE;color:var(--bu-red);}
+
+/* ── FOOTER ── */
+footer{background:var(--bu-dark);color:rgba(255,255,255,0.5);padding:28px 24px;font-size:12px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;margin-right:18px;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+.footer-copy{font-size:11px;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><a href="#">Metropolitan College</a><span class="sep">|</span><a href="#">Boston University</a><span class="sep">|</span><a href="#">Contact Us</a></span>
+    <a href="#">Livestream ›</a>
+  </div>
+</div>
+
+<!-- SITE HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="bu-shield">
+      <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="44" rx="2" fill="#CC0000"/>
+        <text x="20" y="30" text-anchor="middle" fill="white" font-family="serif" font-size="20" font-weight="bold">BU</text>
+      </svg>
+    </div>
+    <div class="site-title">
+      <div class="college">Boston University · Metropolitan College</div>
+      <div class="name">Symposium on <span>Project Management in Practice</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Agenda</a></li>
+      <li><a href="#">Speakers</a></li>
+      <li><a class="active" href="#">20th Anniv Forum</a></li>
+      <li><a href="#">Industry Board</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <ul>
+      <li class="nav-cta"><a href="#">Register ›</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-text">20</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">PMiP · 20th Anniversary</div>
+    <h1>The 20th Anniversary<br><em>Vanguard Forum</em></h1>
+    <p class="hero-sub">A Strategic Industry–Alumni Nexus — uniting the program's pioneering graduates with the PMiP Industry Board to shape the next era of project management excellence.</p>
+    <div class="hero-pills">
+      <span class="pill red">Invitation Only</span>
+      <span class="pill">Cohorts 2004–2024</span>
+      <span class="pill">Industry Board Co-Sponsored</span>
+      <span class="pill">TBD · Boston University MET</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
+  <div class="two-col">
+
+    <!-- LEFT: MAIN CONTENT -->
+    <div class="main-col">
+
+      <!-- ABOUT -->
+      <div class="section-title">About the Vanguard Forum</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>Twenty years ago, a pioneering cohort of project managers walked out of Boston University and into industries they would quietly transform. Today, those <strong>vanguards return</strong> — not to reminisce, but to architect the future alongside the industry leaders they inspired.</p>
+        <p>This forum marks a <strong>historic convergence</strong>: for the first time since the program's founding, alumni from every graduating class — 2004 through 2024 — gather alongside the PMiP Industry Board in a living laboratory of strategy, reflection, and forward vision. The earliest graduating classes, who paved the way when project management in practice was still a frontier, return to BU to sit at the table with the board members now shaping the industry's next chapter.</p>
+        <p>Chaired by <strong>Mr. Wasim Al-Rashid</strong>, Chair of the PMiP Industry Board, the forum brings together two decades of field-tested expertise and macro-level industry oversight under one roof — a once-in-a-generation gathering that is both a celebration of where the program has been and a strategic blueprint for where it is going.</p>
+      </div>
+
+      <!-- FORUM SESSIONS -->
+      <div class="section-title">Forum Sessions</div>
+      <p class="section-intro">Six signature sessions structured around the program's 20-year arc, each designed to bridge alumni field experience with industry board strategy.</p>
+
+      <div class="sessions-list">
+
+        <div class="session-item">
+          <div class="session-num">Session 01 · Opening Plenary</div>
+          <h3>A Vanguard Synergy Session</h3>
+          <p>Honoring the original graduates who paved the way 20 years ago and spotlighting their role as pioneers now collaborating with the board. "Vanguard" recognizes those who led the charge before the path was clear.</p>
+          <div class="session-tags">
+            <span class="tag time">9:00 – 10:30 AM</span>
+            <span class="tag type">Plenary</span>
+          </div>
+        </div>
+
+        <div class="session-item">
+          <div class="session-num">Session 02 · Panel Dialogue</div>
+          <h3>The Foundation & Future Forum</h3>
+          <p>A balanced title positioning alumni as the program's bedrock and the Industry Board as architects of its future. A structured dialogue between where PMiP has been and where it is heading.</p>
+          <div class="session-tags">
+            <span class="tag time">10:45 AM – 12:00 PM</span>
+            <span class="tag type">Panel</span>
+          </div>
+        </div>
+
+        <div class="session-item">
+          <div class="session-num">Session 03 · Signature Event</div>
+          <h3>The Two-Decades Nexus</h3>
+          <p>A modern, punchy session marking the literal connection point between 20 years of field history and elite industry oversight — where the program's legacy meets its strategic horizon.</p>
+          <div class="session-tags">
+            <span class="tag time">1:00 – 2:15 PM</span>
+            <span class="tag type">Workshop</span>
+            <span class="tag special">Signature Event</span>
+          </div>
+        </div>
+
+        <div class="session-item">
+          <div class="session-num">Session 04 · Executive Roundtable</div>
+          <h3>The PMiP Advisory Roundtable</h3>
+          <p>A highly professional, executive-level session framing alumni and board members as a unified brain trust — candid, high-stakes strategic counsel in a closed roundtable format.</p>
+          <div class="session-tags">
+            <span class="tag time">2:30 – 3:45 PM</span>
+            <span class="tag type">Roundtable</span>
+          </div>
+        </div>
+
+        <div class="session-item">
+          <div class="session-num">Session 05 · Working Group</div>
+          <h3>The Industry–Alumni Co-Lab</h3>
+          <p>An action-oriented working session for brainstorming new project frameworks, AI integration strategies, and emerging methodologies shaping the profession — alumni and board co-creating together.</p>
+          <div class="session-tags">
+            <span class="tag time">4:00 – 5:00 PM</span>
+            <span class="tag type">Co-Lab</span>
+            <span class="tag special">AI Focus</span>
+          </div>
+        </div>
+
+        <div class="session-item">
+          <div class="session-num">Session 06 · Closing Summit</div>
+          <h3>The Strategic Alignment Summit</h3>
+          <p>Aligning 20 years of practical field experience with macro industry board oversight — culminating in a shared strategic declaration for PMiP's third decade.</p>
+          <div class="session-tags">
+            <span class="tag time">5:00 – 6:00 PM</span>
+            <span class="tag type">Summit</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- AGENDA TABLE -->
+      <div class="section-title">Day-of Agenda</div>
+      <p class="section-intro">Full schedule for the 20th Anniversary Vanguard Forum. Venue and date to be confirmed.</p>
+
+      <table class="agenda-table">
+        <thead>
+          <tr><th style="width:110px;">Time</th><th>Event</th></tr>
+        </thead>
+        <tbody>
+          <tr class="header-row"><td colspan="2">Registration & Welcome</td></tr>
+          <tr>
+            <td class="time-col">8:30 AM</td>
+            <td><div class="event-title">Check-In & Refreshments</div><div class="event-detail">Alumni registration · 1st Floor Lobby</div></td>
+          </tr>
+          <tr class="header-row"><td colspan="2">Morning Sessions · Room TBD</td></tr>
+          <tr>
+            <td class="time-col">9:00 AM</td>
+            <td><div class="event-title">Opening Remarks & Introduction</div><div class="event-detail">Program Director, PMiP · BU Metropolitan College</div></td>
+          </tr>
+          <tr>
+            <td class="time-col">9:10 AM</td>
+            <td><div class="event-title">Session 01 — A Vanguard Synergy Session</div><div class="event-detail">Opening plenary · Founding cohort alumni featured</div></td>
+          </tr>
+          <tr>
+            <td class="time-col">10:45 AM</td>
+            <td><div class="event-title">Session 02 — The Foundation & Future Forum</div><div class="event-detail">Alumni–board panel dialogue</div></td>
+          </tr>
+          <tr class="header-row"><td colspan="2">Midday · 1st Floor Lobby</td></tr>
+          <tr>
+            <td class="time-col">12:00 PM</td>
+            <td><div class="event-title">Luncheon — "20 Voices, 20 Years"</div><div class="event-detail">Keynote remarks · Mr. Wasim Al-Rashid, Chair, PMiP Industry Board</div></td>
+          </tr>
+          <tr class="header-row"><td colspan="2">Afternoon Sessions</td></tr>
+          <tr>
+            <td class="time-col">1:00 PM</td>
+            <td><div class="event-title">Session 03 — The Two-Decades Nexus ★</div><div class="event-detail">Signature breakout workshops by cohort era</div></td>
+          </tr>
+          <tr>
+            <td class="time-col">2:30 PM</td>
+            <td><div class="event-title">Session 04 — The PMiP Advisory Roundtable</div><div class="event-detail">Executive-level strategic counsel · Closed session</div></td>
+          </tr>
+          <tr>
+            <td class="time-col">4:00 PM</td>
+            <td><div class="event-title">Session 05 — The Industry–Alumni Co-Lab</div><div class="event-detail">AI & emerging frameworks working group</div></td>
+          </tr>
+          <tr>
+            <td class="time-col">5:00 PM</td>
+            <td><div class="event-title">Session 06 — The Strategic Alignment Summit</div><div class="event-detail">Closing declaration · Handoff to program leadership</div></td>
+          </tr>
+          <tr class="header-row"><td colspan="2">Reception · 1st Floor Lobby</td></tr>
+          <tr>
+            <td class="time-col">6:00 PM</td>
+            <td><div class="event-title">Alumni & Industry Board Reception</div><div class="event-detail">Networking reception · All registered attendees welcome</div></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- SPEAKERS -->
+      <div class="section-title">Distinguished Participants</div>
+      <p class="section-intro">The Vanguard Forum brings together alumni spanning two decades of the PMiP program alongside members of the PMiP Industry Board.</p>
+
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <div class="avatar av-red">WA</div>
+          <div class="speaker-name">Mr. Wasim Al-Rashid</div>
+          <div class="speaker-role">Chair, PMiP Industry Board</div>
+          <span class="cohort-badge board">Industry Board</span>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar av-gold">DM</div>
+          <div class="speaker-name">Dr. Diana Mercer</div>
+          <div class="speaker-role">VP, Strategic Programs<br>Harmon Global</div>
+          <span class="cohort-badge">Class of 2004</span>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar av-blue">RO</div>
+          <div class="speaker-name">Rafael Oduya</div>
+          <div class="speaker-role">Chief of Staff<br>NovaBridge Partners</div>
+          <span class="cohort-badge">Class of 2006</span>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar av-green">SC</div>
+          <div class="speaker-name">Sandra Chen</div>
+          <div class="speaker-role">Director, PMO<br>Axiom Health Systems</div>
+          <span class="cohort-badge">Class of 2009</span>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar av-gray">JP</div>
+          <div class="speaker-name">James Petrov</div>
+          <div class="speaker-role">Senior PM Lead<br>Crestline Technologies</div>
+          <span class="cohort-badge">Class of 2015</span>
+        </div>
+        <div class="speaker-card">
+          <div class="avatar av-gold">AN</div>
+          <div class="speaker-name">Amara Nwosu</div>
+          <div class="speaker-role">Founding Partner<br>Clarity Consulting Group</div>
+          <span class="cohort-badge">Class of 2020</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h4>Event Details</h4>
+        <div class="info-row"><div class="label">Date</div><div class="val">TBD · To be confirmed</div></div>
+        <div class="info-row"><div class="label">Venue</div><div class="val">Boston University<br>Metropolitan College<br>Boston, MA</div></div>
+        <div class="info-row"><div class="label">Format</div><div class="val">In-person · Invitation Only</div></div>
+        <div class="info-row"><div class="label">Hosted by</div><div class="val">Dept. of Administrative Sciences, BU MET</div></div>
+        <a class="register-btn" href="#">Register / RSVP ›</a>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Industry Board</h4>
+        <p>The PMiP Industry Board oversees strategic alignment between the program and the project management profession. Mr. Wasim Al-Rashid chairs the board for this forum.</p>
+        <p style="font-size:12px;color:#888;font-style:italic;">Full board details to be announced following Mr. Wasim's industry huddle.</p>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Forum Quick Links</h4>
+        <ul>
+          <li>About the Vanguard Forum</li>
+          <li>Full Session Agenda</li>
+          <li>Distinguished Speakers</li>
+          <li>Industry Board Members</li>
+          <li>Alumni Directory</li>
+          <li>Visiting Boston</li>
+          <li>Contact the Committee</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box" style="border-top-color:#8a7144;">
+        <h4>About BU MET</h4>
+        <p>For over half a century, Boston University's Metropolitan College has brought scholarly rigor to working adults via innovative, flexible programs — including the flagship Project Management in Practice program.</p>
+        <p><a href="#" style="color:var(--bu-red);font-size:13px;font-weight:600;">Learn more about BU MET ›</a></p>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#">Metropolitan College</a>
+      <a href="#">Boston University</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-copy">© Boston University. All rights reserved. www.bu.edu &nbsp;·&nbsp; Prototype — PMiP Group Project</div>
+  </div>
+</footer>
+
+</body>
+</html>

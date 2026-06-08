@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About | PMiP Conference · Boston University</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & ROOT ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bu-red:#CC0000;
+  --bu-dark:#1a1a1a;
+  --bu-gray:#4a4a4a;
+  --bu-light:#f5f5f5;
+  --bu-border:#ddd;
+  --bu-gold:#8a7144;
+  --white:#fff;
+  --link:#CC0000;
+}
+body{font-family:'Open Sans',sans-serif;font-size:15px;color:#333;background:#fff;line-height:1.6;}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--bu-dark);padding:6px 0;}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.topbar a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;}
+.topbar a:hover{color:#fff;}
+.topbar .sep{color:rgba(255,255,255,0.25);margin:0 10px;}
+
+/* ── SITE HEADER ── */
+header{background:var(--bu-red);padding:0;}
+.header-inner{max-width:1100px;margin:0 auto;padding:18px 24px 16px;display:flex;align-items:center;gap:18px;}
+.bu-shield{width:42px;height:42px;background:white;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bu-shield svg{width:28px;height:28px;}
+.site-title{color:white;}
+.site-title .college{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;margin-bottom:2px;}
+.site-title .name{font-family:'Merriweather',serif;font-size:19px;font-weight:700;line-height:1.2;}
+.site-title .name span{font-weight:400;font-style:italic;}
+
+/* ── NAV ── */
+nav{background:#222;border-bottom:3px solid var(--bu-red);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+nav ul{display:flex;list-style:none;}
+nav ul li{position:relative;}
+nav ul li a{display:block;color:rgba(255,255,255,0.82);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.04em;padding:13px 16px;transition:background 0.15s,color 0.15s;}
+nav ul li a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+nav ul li a.active{color:#fff;background:var(--bu-red);}
+.nav-cta a{background:var(--bu-red);color:white!important;padding:8px 18px!important;border-radius:2px;font-size:12px!important;}
+.nav-cta a:hover{background:#aa0000!important;}
+
+/* ── HERO BANNER ── */
+.hero{position:relative;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);overflow:hidden;padding:56px 24px 48px;}
+.hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Merriweather',serif;font-size:180px;font-weight:700;color:rgba(255,255,255,0.025);white-space:nowrap;pointer-events:none;letter-spacing:-0.05em;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.hero-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bu-red);margin-bottom:14px;background:rgba(204,0,0,0.1);display:inline-block;padding:4px 12px;border-left:3px solid var(--bu-red);}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(24px,4vw,40px);font-weight:700;color:#fff;line-height:1.2;max-width:700px;margin-bottom:12px;}
+.hero h1 em{color:#e8c97e;font-style:italic;font-weight:400;}
+.hero-sub{font-size:14.5px;color:rgba(255,255,255,0.65);max-width:620px;line-height:1.7;margin-bottom:28px;font-weight:300;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:2px;padding:5px 14px;font-size:11.5px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;}
+.pill.red{background:rgba(204,0,0,0.15);border-color:rgba(204,0,0,0.4);color:#f5a0a0;}
+
+/* ── PAGE LAYOUT ── */
+.page-wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+.two-col{display:grid;grid-template-columns:1fr 280px;gap:40px;padding:40px 0 60px;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}}
+
+/* ── SECTION TITLES ── */
+.section-title{font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;padding-bottom:10px;border-bottom:3px solid var(--bu-red);margin-top:36px;}
+.section-title:first-child{margin-top:0;}
+.section-intro{font-size:14.5px;color:var(--bu-gray);line-height:1.75;margin-bottom:28px;margin-top:12px;}
+
+/* ── ABOUT / PROSE BLOCKS ── */
+.about-block{margin-bottom:36px;}
+.about-block p{font-size:14.5px;line-height:1.8;color:#444;margin-bottom:14px;}
+.about-block p strong{color:var(--bu-dark);}
+
+/* ── LEADERSHIP CARDS ── */
+.leadership-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:36px;margin-top:16px;}
+.leader-card{border:1px solid var(--bu-border);border-top:3px solid var(--bu-red);padding:18px 16px;background:#fff;transition:box-shadow 0.15s;}
+.leader-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+.leader-card.gold{border-top-color:var(--bu-gold);}
+.avatar{width:52px;height:52px;border-radius:50%;margin:0 0 12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;}
+.av-red{background:#fde8e8;color:var(--bu-red);}
+.av-gray{background:#e8e8e8;color:#444;}
+.av-gold{background:#fdf3dc;color:#7a6020;}
+.av-blue{background:#e4edf9;color:#1a4a8a;}
+.av-green{background:#e5f2e5;color:#2a6a2a;}
+.av-purple{background:#f0eaf8;color:#5a2a8a;}
+.leader-name{font-weight:700;font-size:13.5px;color:var(--bu-dark);margin-bottom:3px;}
+.leader-role{font-size:12px;color:#666;line-height:1.45;margin-bottom:8px;}
+.role-badge{display:inline-block;font-size:10.5px;padding:2px 10px;background:#f0f0f0;color:#555;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+.role-badge.red{background:#FEE;color:var(--bu-red);}
+.role-badge.gold{background:#fdf6e3;color:#7a6020;}
+
+/* ── TEAM CARDS ── */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:36px;margin-top:16px;}
+.team-card{border:1px solid var(--bu-border);border-top:3px solid var(--bu-gold);padding:18px 16px;background:#fff;transition:box-shadow 0.15s;}
+.team-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+.team-name{font-weight:700;font-size:13.5px;color:var(--bu-dark);margin-bottom:3px;}
+.team-role{font-size:12px;color:#666;line-height:1.45;margin-bottom:8px;}
+.team-badge{display:inline-block;font-size:10.5px;padding:2px 10px;background:#fdf6e3;color:#7a6020;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+
+/* ── INFO HIGHLIGHT BOX ── */
+.highlight-box{background:var(--bu-light);border-left:4px solid var(--bu-red);padding:18px 20px;margin-bottom:28px;border-radius:0 4px 4px 0;}
+.highlight-box p{font-size:14px;color:#444;line-height:1.75;margin-bottom:0;}
+.highlight-box p+p{margin-top:10px;}
+
+/* ── SIDEBAR ── */
+.sidebar{}
+.sidebar-box{border:1px solid var(--bu-border);border-top:3px solid var(--bu-red);padding:18px 20px;margin-bottom:22px;background:#fff;}
+.sidebar-box h4{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--bu-dark);margin-bottom:14px;}
+.sidebar-box p{font-size:13px;color:#555;line-height:1.65;margin-bottom:10px;}
+.sidebar-box ul{list-style:none;padding:0;}
+.sidebar-box ul li{font-size:13px;color:#555;padding:6px 0;border-bottom:1px solid #eee;display:flex;align-items:flex-start;gap:8px;}
+.sidebar-box ul li:last-child{border-bottom:none;}
+.sidebar-box ul li::before{content:'›';color:var(--bu-red);font-weight:700;font-size:15px;margin-top:-1px;}
+.register-btn{display:block;background:var(--bu-red);color:white;text-align:center;padding:11px 16px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-decoration:none;border-radius:2px;text-transform:uppercase;margin-top:12px;transition:background 0.15s;}
+.register-btn:hover{background:#aa0000;}
+.info-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.info-row .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--bu-red);min-width:60px;margin-top:1px;}
+.info-row .val{font-size:13px;color:#444;line-height:1.5;}
+
+/* ── FOOTER ── */
+footer{background:var(--bu-dark);color:rgba(255,255,255,0.5);padding:28px 24px;font-size:12px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;margin-right:18px;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+.footer-copy{font-size:11px;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><a href="#">Metropolitan College</a><span class="sep">|</span><a href="#">Boston University</a><span class="sep">|</span><a href="#">Contact Us</a></span>
+    <a href="#">Livestream ›</a>
+  </div>
+</div>
+
+<!-- SITE HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="bu-shield">
+      <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="44" rx="2" fill="#CC0000"/>
+        <text x="20" y="30" text-anchor="middle" fill="white" font-family="serif" font-size="20" font-weight="bold">BU</text>
+      </svg>
+    </div>
+    <div class="site-title">
+      <div class="college">Boston University · Metropolitan College</div>
+      <div class="name">Symposium on <span>Project Management in Practice</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <ul>
+      <li><a class="active" href="about.html">About</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="speakers.html">Speakers</a></li>
+      <li><a href="index.html">20th Anniv Forum</a></li>
+      <li><a href="industry-board.html">Industry Board</a></li>
+      <li><a href="announcements.html">Announcements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <ul>
+      <li class="nav-cta"><a href="registration.html">Register ›</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-text">PMiP</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Boston University · Metropolitan College</div>
+    <h1>About the <em>PMiP Conference</em></h1>
+    <p class="hero-sub">The Project Management in Practice Conference is Boston University's annual gathering of PM professionals, educators, alumni, and students — a platform for practical knowledge, industry insight, and professional connection.</p>
+    <div class="hero-pills">
+      <span class="pill">Annual Conference</span>
+      <span class="pill">BU Metropolitan College</span>
+      <span class="pill">Dept. of Administrative Sciences</span>
+      <span class="pill red">Open to All Stakeholders</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
+  <div class="two-col">
+
+    <!-- LEFT: MAIN CONTENT -->
+    <div class="main-col">
+
+      <!-- WELCOME -->
+      <div class="section-title">Welcome to PMiP</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>Welcome to the official website of the <strong>Project Management in Practice (PMiP) Conference</strong> at Boston University's Metropolitan College. This platform serves as the central hub for conference information, attendee communication, and stakeholder engagement.</p>
+        <p>As interest in project management continues to grow across industries — including technology, healthcare, construction, finance, and higher education — conferences like PMiP have become essential spaces for connecting students, educators, and industry professionals. This website was created to give the PMiP Conference the centralized digital presence it deserves.</p>
+      </div>
+
+      <!-- ABOUT THE CONFERENCE -->
+      <div class="section-title">About the Conference</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>The <strong>Project Management in Practice Conference</strong> is an annual event hosted by the Department of Administrative Sciences at Boston University's Metropolitan College. The conference provides a dedicated space for project management professionals, educators, and students to share practical knowledge, explore industry trends, present research, and exchange real-world experiences.</p>
+        <p>PMiP bridges the gap between academic rigor and professional practice. Students seeking internships and career opportunities connect directly with seasoned professionals, while industry experts engage with emerging talent and the latest academic thinking in the PM field. The result is a uniquely collaborative environment that benefits every stakeholder in attendance.</p>
+        <p>This year's conference marks a <strong>historic milestone</strong> — the 20th Anniversary Vanguard Forum — bringing together alumni from every graduating cohort since 2004 alongside the PMiP Industry Board for a once-in-a-generation strategic gathering.</p>
+      </div>
+
+      <!-- WHAT TO EXPECT -->
+      <div class="section-title">What to Expect</div>
+      <div class="highlight-box" style="margin-top:16px;">
+        <p>The PMiP Conference delivers a full day of structured programming including keynote addresses, panel discussions, breakout workshops, and networking opportunities — all designed to connect practical field experience with forward-looking industry strategy.</p>
+      </div>
+      <div class="about-block">
+        <p><strong>Conference Sessions</strong> — Six signature sessions structured around key themes in project management, from founding principles to emerging AI-driven frameworks and methodologies.</p>
+        <p><strong>Distinguished Speakers</strong> — Keynote presentations and panel discussions led by industry leaders, PMiP alumni, and academic professionals with decades of combined experience.</p>
+        <p><strong>Industry Board Dialogue</strong> — Direct engagement with the PMiP Industry Board, chaired by Mr. Wasim Al-Rashid, providing macro-level strategic oversight and industry perspective.</p>
+        <p><strong>Networking Reception</strong> — A dedicated post-conference reception open to all registered attendees, providing space for informal connection and professional relationship-building.</p>
+      </div>
+
+      <!-- CONFERENCE LEADERSHIP -->
+      <div class="section-title">Conference Leadership</div>
+      <p class="section-intro">The PMiP Conference is guided by a dedicated team of academic leaders, industry professionals, and program sponsors committed to the growth of the project management profession.</p>
+
+      <div class="leadership-grid">
+
+        <div class="leader-card">
+          <div class="avatar av-blue">VK</div>
+          <div class="leader-name">Prof. Vijay Kanabar</div>
+          <div class="leader-role">Project Sponsor · CIO<br>Boston University MET</div>
+          <span class="role-badge red">Project Sponsor</span>
+        </div>
+
+        <div class="leader-card">
+          <div class="avatar av-red">RM</div>
+          <div class="leader-name">Rich Maltzman</div>
+          <div class="leader-role">Conference Co-Chair<br>Boston University MET</div>
+          <span class="role-badge">Co-Chair</span>
+        </div>
+
+        <div class="leader-card">
+          <div class="avatar av-gold">YA</div>
+          <div class="leader-name">Yolande Athaide</div>
+          <div class="leader-role">Conference Co-Chair<br>Boston University MET</div>
+          <span class="role-badge">Co-Chair</span>
+        </div>
+
+        <div class="leader-card gold">
+          <div class="avatar av-purple">WA</div>
+          <div class="leader-name">Mr. Wasim Al-Rashid</div>
+          <div class="leader-role">Chair, PMiP Industry Board</div>
+          <span class="role-badge gold">Industry Board</span>
+        </div>
+
+      </div>
+
+      <!-- ABOUT BU MET -->
+      <div class="section-title">About Boston University Metropolitan College</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>For over half a century, <strong>Boston University's Metropolitan College (MET)</strong> has brought the scholarly rigor and resources of an internationally respected research university to busy, working adults via innovative, part-time programs. As one of the 17 degree-granting bodies at BU, MET offers more than 80 graduate and undergraduate degree and certificate programs — evenings on campus, online, and in blended formats designed to meet the needs of both the local and global professional community.</p>
+        <p>A laboratory and incubator for new programs, pedagogy, and educational technologies, MET ensures that students have access to cutting-edge facilities and the latest learning tools — as well as the opportunity to build networks with classmates and industry peers. MET's online master's degrees in management are ranked <strong>#12 in the nation</strong> by U.S. News &amp; World Report for 2026.</p>
+        <p><a href="https://www.bu.edu/met" target="_blank" style="color:var(--bu-red);font-weight:600;">Learn more about BU MET ›</a></p>
+      </div>
+
+      <!-- ABOUT DEPT OF ADMIN SCIENCES -->
+      <div class="section-title">About the Department of Administrative Sciences</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>BU MET's <strong>Department of Administrative Sciences</strong> offers rigorous management programs that embrace innovation, evolving technology, and the globally interconnected nature of today's business sectors. Available in flexible formats — including part time and full time, online, and evenings on campus — the department's graduate degree and certificate programs are continuously reviewed and updated to integrate emerging specialties within industry.</p>
+        <p>The PMiP Conference is hosted and organized under the Department of Administrative Sciences, reflecting the department's commitment to connecting academic excellence with real-world professional practice in the field of project management.</p>
+        <p><a href="https://www.bu.edu/adminsc/" target="_blank" style="color:var(--bu-red);font-weight:600;">Learn more about Administrative Sciences ›</a></p>
+      </div>
+
+      <!-- PROJECT TEAM -->
+      <div class="section-title">Website Project Team</div>
+      <p class="section-intro">This website was developed as part of a Boston University IT Project &amp; Product Management course (Milestone 2), under the direction of Prof. Vijay Kanabar.</p>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="avatar av-red" style="margin-bottom:10px;">SE</div>
+          <div class="team-name">Sherif Errefae</div>
+          <div class="team-role">Project Manager<br>Website Development Lead</div>
+          <span class="team-badge">Project Manager</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar av-blue" style="margin-bottom:10px;">PA</div>
+          <div class="team-name">Pedro Almeyda</div>
+          <div class="team-role">WBS &amp; Planning<br>Website Development</div>
+          <span class="team-badge">Team Member</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar av-gold" style="margin-bottom:10px;">AB</div>
+          <div class="team-name">Andre Bet-Warda</div>
+          <div class="team-role">Stakeholder Identification<br>Website Development</div>
+          <span class="team-badge">Team Member</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar av-green" style="margin-bottom:10px;">SP</div>
+          <div class="team-name">Stephanie Pollich</div>
+          <div class="team-role">Requirements &amp; User Stories<br>Website Development</div>
+          <span class="team-badge">Team Member</span>
+        </div>
+
+      </div>
+
+    </div><!-- end main-col -->
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h4>Event Details</h4>
+        <div class="info-row"><div class="label">Date</div><div class="val">TBD · To be confirmed</div></div>
+        <div class="info-row"><div class="label">Venue</div><div class="val">Boston University<br>Metropolitan College<br>Boston, MA</div></div>
+        <div class="info-row"><div class="label">Format</div><div class="val">In-person · Invitation Only</div></div>
+        <div class="info-row"><div class="label">Hosted by</div><div class="val">Dept. of Administrative Sciences, BU MET</div></div>
+        <a class="register-btn" href="#">Register / RSVP ›</a>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Industry Board</h4>
+        <p>The PMiP Industry Board oversees strategic alignment between the program and the project management profession. Mr. Wasim Al-Rashid chairs the board for this forum.</p>
+        <p style="font-size:12px;color:#888;font-style:italic;">Full board details to be announced following Mr. Wasim's industry huddle.</p>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li>About the PMiP Conference</li>
+          <li>Full Session Agenda</li>
+          <li>Distinguished Speakers</li>
+          <li>Industry Board Members</li>
+          <li>20th Anniversary Forum</li>
+          <li>Alumni Directory</li>
+          <li>Contact the Committee</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box" style="border-top-color:#8a7144;">
+        <h4>About BU MET</h4>
+        <p>For over half a century, Boston University's Metropolitan College has brought scholarly rigor to working adults via innovative, flexible programs — including the flagship Project Management in Practice program.</p>
+        <p><a href="https://www.bu.edu/met" target="_blank" style="color:var(--bu-red);font-size:13px;font-weight:600;">Learn more about BU MET ›</a></p>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#">Metropolitan College</a>
+      <a href="#">Boston University</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-copy">© Boston University. All rights reserved. www.bu.edu &nbsp;·&nbsp; Prototype — PMiP Group Project</div>
+  </div>
+</footer>
+
+</body>
+</html>
