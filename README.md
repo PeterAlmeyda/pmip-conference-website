@@ -95,16 +95,13 @@ All pages must be in the same root folder for navigation links to work correctly
 
 ## Team
 
-| Name | Role |
-|------|------|
-| Sherif Errefae | Project Manager |
-| Pedro Almeyda | QA / Engineer Lead|
-| Andre Bet-Warda | Team Member |
-| Stephanie Pollich | Team Member |
-| Prof. Vijay Kanabar | Professor & Project Sponsor |
-
-**Conference Co-Chairs:** Rich Maltzman & Yolande Athaide  
-**Industry Board Chair:** Mr. Wasim Al-Rashid
+| Name | Role | Contributions |
+|------|------|---------------|
+| Sherif Errefae | Project Manager | Agenda, Contact, Industry Board, Vanguard Forum, Speakers |
+| Pedro Almeyda | QA / Engineer Lead | Template, Prompts, Homepage, Registration, Announcements, README, GitHub Repository |
+| Andre Bet-Warda | Team Member | Burnup Chart |
+| Stephanie Pollich | Team Member | Conclusions, Resource Management |
+| Prof. Vijay Kanabar | Professor & Project Sponsor | — |
 
 ---
 
