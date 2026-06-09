@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Industry Board | PMiP Conference · Boston University</title>
+
+<!-- ============================================================
+     CONFERENCE CONFIGURATION — UPDATE THIS BLOCK EACH YEAR.
+     This is the ONLY place you need to change year/date info.
+     All pages that use this template will reflect updates made here.
+     ============================================================ -->
+<script>
+  const CONFERENCE = {
+    year:        "2026",
+    theme:       "20th Anniversary Vanguard Forum",
+    date:        "November 6, 2026",
+    venue:       "Boston University<br>Metropolitan College<br>Boston, MA",
+    format:      "In-person · Open to Registrants",
+    hostedBy:    "Dept. of Administrative Sciences, BU MET",
+    registerURL: "registration.html"
+  };
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   MASTER STYLESHEET — PMiP Conference Website
+   DO NOT MODIFY THIS SECTION without team approval.
+   All pages share this CSS. Changes here affect every page.
+   ============================================================ */
+
+/* ── RESET & ROOT ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bu-red:#CC0000;
+  --bu-dark:#1a1a1a;
+  --bu-gray:#4a4a4a;
+  --bu-light:#f5f5f5;
+  --bu-border:#ddd;
+  --bu-gold:#8a7144;
+  --white:#fff;
+  --link:#CC0000;
+}
+body{font-family:'Open Sans',sans-serif;font-size:15px;color:#333;background:#fff;line-height:1.6;}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--bu-dark);padding:6px 0;}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.topbar a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;}
+.topbar a:hover{color:#fff;}
+.topbar .sep{color:rgba(255,255,255,0.25);margin:0 10px;}
+
+/* ── SITE HEADER ── */
+header{background:var(--bu-red);padding:0;}
+.header-inner{max-width:1100px;margin:0 auto;padding:18px 24px 16px;display:flex;align-items:center;gap:18px;}
+.bu-shield{width:42px;height:42px;background:white;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bu-shield svg{width:28px;height:28px;}
+.site-title{color:white;}
+.site-title .college{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;margin-bottom:2px;}
+.site-title .name{font-family:'Merriweather',serif;font-size:19px;font-weight:700;line-height:1.2;}
+.site-title .name span{font-weight:400;font-style:italic;}
+
+/* ── NAV ── */
+nav{background:#222;border-bottom:3px solid var(--bu-red);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+nav ul{display:flex;list-style:none;}
+nav ul li{position:relative;}
+nav ul li a{display:block;color:rgba(255,255,255,0.82);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.04em;padding:13px 16px;transition:background 0.15s,color 0.15s;}
+nav ul li a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+nav ul li a.active{color:#fff;background:var(--bu-red);}
+.nav-cta a{background:var(--bu-red);color:white!important;padding:8px 18px!important;border-radius:2px;font-size:12px!important;}
+.nav-cta a:hover{background:#aa0000!important;}
+
+/* ── HERO BANNER ── */
+.hero{position:relative;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);overflow:hidden;padding:56px 24px 48px;}
+.hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Merriweather',serif;font-size:180px;font-weight:700;color:rgba(255,255,255,0.025);white-space:nowrap;pointer-events:none;letter-spacing:-0.05em;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.hero-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bu-red);margin-bottom:14px;background:rgba(204,0,0,0.1);display:inline-block;padding:4px 12px;border-left:3px solid var(--bu-red);}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(24px,4vw,40px);font-weight:700;color:#fff;line-height:1.2;max-width:700px;margin-bottom:12px;}
+.hero h1 em{color:#e8c97e;font-style:italic;font-weight:400;}
+.hero-sub{font-size:14.5px;color:rgba(255,255,255,0.65);max-width:620px;line-height:1.7;margin-bottom:28px;font-weight:300;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:2px;padding:5px 14px;font-size:11.5px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;}
+.pill.red{background:rgba(204,0,0,0.15);border-color:rgba(204,0,0,0.4);color:#f5a0a0;}
+
+/* ── PAGE LAYOUT ── */
+.page-wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+.two-col{display:grid;grid-template-columns:1fr 280px;gap:40px;padding:40px 0 60px;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}}
+
+/* ── SECTION TITLES ── */
+.section-title{font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;padding-bottom:10px;border-bottom:3px solid var(--bu-red);margin-top:36px;}
+.section-title:first-child{margin-top:0;}
+.section-intro{font-size:14.5px;color:var(--bu-gray);line-height:1.75;margin-bottom:28px;margin-top:12px;}
+
+/* ── PROSE / ABOUT BLOCKS ── */
+.about-block{margin-bottom:36px;}
+.about-block p{font-size:14.5px;line-height:1.8;color:#444;margin-bottom:14px;}
+.about-block p strong{color:var(--bu-dark);}
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box{background:var(--bu-light);border-left:4px solid var(--bu-red);padding:18px 20px;margin-bottom:28px;border-radius:0 4px 4px 0;}
+.highlight-box p{font-size:14px;color:#444;line-height:1.75;margin-bottom:0;}
+.highlight-box p+p{margin-top:10px;}
+
+/* ── SESSIONS / CARDS ── */
+.sessions-list{margin-bottom:36px;}
+.session-item{border:1px solid var(--bu-border);border-left:4px solid var(--bu-red);border-radius:0 4px 4px 0;padding:18px 20px;margin-bottom:14px;background:#fff;}
+.session-item:nth-child(even){border-left-color:var(--bu-gold);}
+.session-num{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--bu-gray);margin-bottom:5px;}
+.session-item h3{font-family:'Merriweather',serif;font-size:15.5px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;line-height:1.35;}
+.session-item p{font-size:13.5px;color:#555;line-height:1.65;margin-bottom:10px;}
+.session-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.tag{font-size:11px;padding:2px 10px;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+.tag.time{background:#f0f0f0;color:#555;}
+.tag.type{background:#FEE;color:var(--bu-red);border:1px solid rgba(204,0,0,0.2);}
+.tag.special{background:#fdf6e3;color:#7a6020;border:1px solid rgba(138,113,68,0.25);}
+
+/* ── AGENDA TABLE ── */
+.agenda-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:36px;}
+.agenda-table th{background:var(--bu-dark);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+.agenda-table td{padding:11px 14px;border-bottom:1px solid var(--bu-border);vertical-align:top;}
+.agenda-table tr:hover td{background:#fafafa;}
+.agenda-table .time-col{color:var(--bu-red);font-weight:600;white-space:nowrap;width:100px;}
+.agenda-table .event-title{font-weight:600;color:var(--bu-dark);margin-bottom:2px;}
+.agenda-table .event-detail{color:#666;font-size:12.5px;}
+.agenda-table tr.header-row td{background:#f5f5f5;font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--bu-gray);padding:8px 14px;}
+
+/* ── SPEAKER / LEADER CARDS ── */
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:36px;}
+.speaker-card{border:1px solid var(--bu-border);padding:16px;text-align:center;background:#fff;transition:box-shadow 0.15s;}
+.speaker-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+.avatar{width:56px;height:56px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;}
+.av-red{background:#fde8e8;color:var(--bu-red);}
+.av-gray{background:#e8e8e8;color:#444;}
+.av-gold{background:#fdf3dc;color:#7a6020;}
+.av-blue{background:#e4edf9;color:#1a4a8a;}
+.av-green{background:#e5f2e5;color:#2a6a2a;}
+.av-purple{background:#f0eaf8;color:#5a2a8a;}
+.speaker-name{font-weight:700;font-size:13.5px;color:var(--bu-dark);margin-bottom:3px;}
+.speaker-role{font-size:12px;color:#666;line-height:1.4;margin-bottom:8px;}
+.cohort-badge{display:inline-block;font-size:10.5px;padding:2px 10px;background:#f0f0f0;color:#555;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+.cohort-badge.board{background:#FEE;color:var(--bu-red);}
+.cohort-badge.gold{background:#fdf6e3;color:#7a6020;}
+
+/* ── FORMS ── */
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12.5px;font-weight:600;color:var(--bu-dark);margin-bottom:6px;letter-spacing:0.03em;}
+.form-group input,
+.form-group select,
+.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--bu-border);border-radius:2px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#333;background:#fff;transition:border 0.15s;}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{outline:none;border-color:var(--bu-red);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-submit{display:inline-block;background:var(--bu-red);color:white;padding:11px 28px;font-size:13px;font-weight:700;letter-spacing:0.05em;border:none;border-radius:2px;text-transform:uppercase;cursor:pointer;transition:background 0.15s;}
+.form-submit:hover{background:#aa0000;}
+
+/* ── SIDEBAR ── */
+.sidebar-box{border:1px solid var(--bu-border);border-top:3px solid var(--bu-red);padding:18px 20px;margin-bottom:22px;background:#fff;}
+.sidebar-box h4{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--bu-dark);margin-bottom:14px;}
+.sidebar-box p{font-size:13px;color:#555;line-height:1.65;margin-bottom:10px;}
+.sidebar-box ul{list-style:none;padding:0;}
+.sidebar-box ul li{font-size:13px;color:#555;padding:6px 0;border-bottom:1px solid #eee;display:flex;align-items:flex-start;gap:8px;}
+.sidebar-box ul li:last-child{border-bottom:none;}
+.sidebar-box ul li::before{content:'›';color:var(--bu-red);font-weight:700;font-size:15px;margin-top:-1px;}
+.register-btn{display:block;background:var(--bu-red);color:white;text-align:center;padding:11px 16px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-decoration:none;border-radius:2px;text-transform:uppercase;margin-top:12px;transition:background 0.15s;}
+.register-btn:hover{background:#aa0000;}
+.info-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.info-row .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--bu-red);min-width:60px;margin-top:1px;}
+.info-row .val{font-size:13px;color:#444;line-height:1.5;}
+
+/* ── FOOTER ── */
+footer{background:var(--bu-dark);color:rgba(255,255,255,0.5);padding:28px 24px;font-size:12px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;margin-right:18px;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+.footer-copy{font-size:11px;}
+
+/* ============================================================
+   END MASTER STYLESHEET — Page-specific styles go below here
+   ============================================================ */
+
+/* ── BOARD MEMBER PROFILE CARDS ── */
+.board-member{border:1px solid var(--bu-border);border-left:4px solid var(--bu-red);border-radius:0 4px 4px 0;padding:24px 24px 20px;margin-bottom:20px;background:#fff;}
+.board-member:nth-child(even){border-left-color:var(--bu-gold);}
+.board-member-header{margin-bottom:12px;}
+.board-member-name{font-family:'Merriweather',serif;font-size:17px;font-weight:700;color:var(--bu-dark);margin-bottom:3px;}
+.board-member-role{font-size:12.5px;font-weight:600;color:var(--bu-red);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;}
+.board-member-org{font-size:13px;color:var(--bu-gray);margin-bottom:12px;}
+.board-member p{font-size:14px;line-height:1.8;color:#444;}
+
+/* ── EXPERTISE TABLE ── */
+.expertise-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:36px;}
+.expertise-table th{background:var(--bu-dark);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+.expertise-table td{padding:11px 14px;border-bottom:1px solid var(--bu-border);vertical-align:top;color:#444;}
+.expertise-table tr:hover td{background:#fafafa;}
+.expertise-table td:first-child{font-weight:600;color:var(--bu-dark);white-space:nowrap;}
+
+/* ── QUOTE BLOCK ── */
+.quote-block{background:var(--bu-light);border-left:4px solid var(--bu-gold);padding:20px 24px;margin-bottom:18px;border-radius:0 4px 4px 0;}
+.quote-block blockquote{font-family:'Merriweather',serif;font-size:14.5px;font-style:italic;color:#333;line-height:1.8;margin-bottom:10px;}
+.quote-attribution{font-size:12.5px;font-weight:600;color:var(--bu-gray);letter-spacing:0.04em;}
+
+/* ── CHAIR MESSAGE ── */
+.chair-message{background:#1a1a1a;color:#fff;padding:28px 28px 24px;margin-bottom:36px;border-radius:0 4px 4px 0;}
+.chair-message-label{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bu-red);margin-bottom:12px;}
+.chair-message p{font-size:14px;line-height:1.85;color:rgba(255,255,255,0.8);margin-bottom:14px;}
+.chair-message p:last-child{margin-bottom:0;}
+.chair-message-sig{font-size:12.5px;color:rgba(255,255,255,0.5);margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1);}
+
+/* ── RESPONSIBILITIES LIST ── */
+.responsibilities-list{list-style:none;padding:0;margin-bottom:36px;}
+.responsibilities-list li{padding:12px 16px 12px 0;border-bottom:1px solid var(--bu-border);font-size:14px;color:#444;line-height:1.7;display:flex;gap:12px;align-items:flex-start;}
+.responsibilities-list li:last-child{border-bottom:none;}
+.responsibilities-list li::before{content:'›';color:var(--bu-red);font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px;}
+.responsibilities-list li strong{color:var(--bu-dark);}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR — Do not modify
+     ============================================================ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>
+      <a href="#">Metropolitan College</a>
+      <span class="sep">|</span>
+      <a href="#">Boston University</a>
+      <span class="sep">|</span>
+      <a href="#">Contact Us</a>
+    </span>
+    <a href="#">Livestream ›</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     SITE HEADER — Do not modify
+     ============================================================ -->
+<header>
+  <div class="header-inner">
+    <div class="bu-shield">
+      <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="44" rx="2" fill="#CC0000"/>
+        <text x="20" y="30" text-anchor="middle" fill="white" font-family="serif" font-size="20" font-weight="bold">BU</text>
+      </svg>
+    </div>
+    <div class="site-title">
+      <div class="college">Boston University · Metropolitan College</div>
+      <div class="name">Symposium on <span>Project Management in Practice</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav>
+  <div class="nav-inner">
+    <ul>
+      <li><a href="index.html">About</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="speakers.html">Speakers</a></li>
+      <li><a href="vanguard-forum.html">20th Anniv Forum</a></li>
+      <li><a href="industry-board.html" class="active">Industry Board</a></li>
+      <li><a href="announcements.html">Announcements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <ul>
+      <li class="nav-cta"><a href="registration.html">Register ›</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO BANNER
+     ============================================================ -->
+<div class="hero">
+  <div class="hero-bg-text">BOARD</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Boston University · Metropolitan College</div>
+    <h1>Industry Advisory <em>Board</em></h1>
+    <p class="hero-sub">Meet the distinguished practitioners and academics who shape the PMiP Conference program and uphold its standard of real-world relevance.</p>
+    <div class="hero-pills">
+      <span class="pill">PMiP 2026</span>
+      <span class="pill">20th Anniversary</span>
+      <span class="pill">November 6, 2026</span>
+      <span class="pill red">Advisory Board</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MAIN PAGE CONTENT
+     ============================================================ -->
+<div class="page-wrap">
+  <div class="two-col">
+
+    <div class="main-col">
+
+      <!-- SECTION 1: INTRODUCTION -->
+      <div class="section-title">About the Industry Advisory Board</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>The PMiP Industry Advisory Board is a distinguished group of project management professionals, academics, and industry leaders who guide the strategic direction of the annual PMiP Conference. Established to ensure the conference remains grounded in real-world practice and aligned with the evolving demands of the profession, the board brings together voices from across sectors and disciplines.</p>
+        <p>Their collective expertise shapes everything from the conference theme and keynote topics to the abstract review process and program curation. For 20 years, the board's involvement has been central to PMiP's reputation as one of the most credible and practitioner-focused PM events in the region.</p>
+      </div>
+
+      <!-- SECTION 2: MESSAGE FROM BOARD CHAIR -->
+      <div class="section-title">A Message from the Board Chair</div>
+      <div class="chair-message" style="margin-top:16px;">
+        <div class="chair-message-label">From Wasim Al-Rashid, Industry Board Chair</div>
+        <p>"We are at a genuine inflection point in the project management profession. Artificial intelligence is no longer a future consideration, it is already reshaping how teams plan, execute, and report. The 20th Anniversary PMiP Conference is a rare opportunity for practitioners, educators, and leaders to step back from the daily grind and think seriously about where this profession is headed.</p>
+        <p>On behalf of the Industry Advisory Board, I want to welcome every attendee, speaker, and sponsor to this milestone event. The program you will experience reflects months of deliberation, debate, and genuine enthusiasm from a board that believes deeply in the value of this community. We hope you leave Boston not just informed, but inspired.</p>
+        <p>See you on November 6."</p>
+        <div class="chair-message-sig">Wasim Al-Rashid, PMP &nbsp;·&nbsp; Industry Board Chair, PMiP 2026</div>
+      </div>
+
+      <!-- SECTION 3: BOARD MEMBERS -->
+      <div class="section-title">Board Members</div>
+      <div style="margin-top:16px;">
+
+        <div class="board-member">
+          <div class="board-member-header">
+            <div class="board-member-name">Wasim Al-Rashid, PMP</div>
+            <div class="board-member-role">Industry Board Chair</div>
+            <div class="board-member-org">Senior Director of Portfolio Strategy, Global Infrastructure Partners</div>
+          </div>
+          <p>Wasim Al-Rashid brings over 20 years of experience leading complex infrastructure and technology portfolios across the public and private sectors. He has held senior roles at multinational firms where he oversaw enterprise-wide PMO transformations and drove adoption of AI-assisted project delivery frameworks. A longtime advocate for bridging academia and industry, Wasim joined the PMiP board to help ensure the conference tackles problems practitioners are actually facing. His current work focuses on integrating predictive analytics into capital program management. He holds a PMP certification and an MBA from Boston University.</p>
+        </div>
+
+        <div class="board-member">
+          <div class="board-member-header">
+            <div class="board-member-name">Dr. Vijay Kanabar, PMP, PMI Fellow</div>
+            <div class="board-member-role">Faculty Sponsor &amp; Board Member</div>
+            <div class="board-member-org">Professor of Computer Science and Administrative Sciences, Boston University Metropolitan College</div>
+          </div>
+          <p>Dr. Vijay Kanabar is a founding force behind PMiP and one of the most respected voices in project management education in North America. He has authored several widely used PM textbooks and has trained thousands of students and professionals through BU's acclaimed graduate PM programs. As a PMI Fellow, he represents the highest standard of contribution to the profession. His scholarship bridges agile methodologies, IT governance, and leadership development. Dr. Kanabar's continued involvement with the board ensures the conference maintains its academic rigor while remaining practically relevant.</p>
+        </div>
+
+        <div class="board-member">
+          <div class="board-member-header">
+            <div class="board-member-name">Rich Maltzman, PMP</div>
+            <div class="board-member-role">Conference Co-Chair, PMiP 2026 &amp; Board Member</div>
+            <div class="board-member-org">Co-Founder, EarthPM &nbsp;|&nbsp; Author &amp; Speaker</div>
+          </div>
+          <p>Rich Maltzman is a veteran project manager, author, and sustainability advocate with decades of experience spanning telecommunications, defense, and higher education. He is the co-founder of EarthPM, a platform dedicated to integrating sustainability thinking into project management practice, and has co-authored multiple books on green project management. Rich brings an interdisciplinary lens to the board, consistently pushing the conference to explore PM's role in addressing broader societal challenges. As Co-Chair of PMiP 2026, he has been instrumental in shaping the AI-Powered Project Management theme and organizing the program tracks. He is a frequent speaker at PMI global events.</p>
+        </div>
+
+        <div class="board-member">
+          <div class="board-member-header">
+            <div class="board-member-name">Yolande Athaide, MBA, PMP</div>
+            <div class="board-member-role">Conference Co-Chair, PMiP 2026 &amp; Board Member</div>
+            <div class="board-member-org">Senior Lecturer, Boston University Metropolitan College</div>
+          </div>
+          <p>Yolande Athaide is a seasoned project management professional and educator whose career has spanned finance, operations, and organizational transformation. At BU Metropolitan College, she teaches graduate-level courses in project management and has developed curriculum that integrates emerging tools, including AI, into PM practice. As Co-Chair of PMiP 2026, Yolande oversees speaker coordination, abstract review, and attendee experience, ensuring the conference delivers tangible value to every participant. She is passionate about mentoring early-career PMs and expanding the profession's reach into underrepresented communities. Her dual role as practitioner and educator gives her a uniquely grounded perspective on what the field needs most.</p>
+        </div>
+
+      </div>
+
+      <!-- SECTION 4: ROLE & RESPONSIBILITIES -->
+      <div class="section-title">The Board's Role &amp; Responsibilities</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>The Industry Advisory Board serves as the intellectual and strategic backbone of the PMiP Conference. Members contribute in the following ways:</p>
+      </div>
+      <ul class="responsibilities-list">
+        <li><strong>Theme Advisory,</strong> Board members identify emerging trends and pain points in their respective industries, which directly inform the conference theme and sub-tracks each year.</li>
+        <li><strong>Abstract Review,</strong> Board members participate in evaluating submitted abstracts and papers, ensuring accepted presentations meet a high bar for relevance and rigor.</li>
+        <li><strong>Keynote Curation,</strong> The board advises on keynote speaker selection, helping identify voices that are both authoritative and timely.</li>
+        <li><strong>Program Endorsement,</strong> Board members review the finalized program before publication to confirm it reflects current industry needs.</li>
+        <li><strong>Community Engagement,</strong> Members serve as ambassadors within their professional networks, expanding the conference's reach and credibility.</li>
+        <li><strong>Post-Conference Feedback,</strong> Board members provide structured feedback after the event to inform future iterations.</li>
+      </ul>
+
+      <!-- SECTION 5: AREAS OF EXPERTISE -->
+      <div class="section-title">Areas of Expertise Represented</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>The board collectively spans a wide range of industries and disciplines, ensuring the conference reflects the full breadth of the project management profession:</p>
+      </div>
+      <table class="expertise-table" style="margin-bottom:36px;">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Representative Focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Information Technology</td><td>Agile, DevOps, AI/ML in PM</td></tr>
+          <tr><td>Construction &amp; Infrastructure</td><td>Capital programs, portfolio strategy</td></tr>
+          <tr><td>Higher Education</td><td>PM curriculum, research, certification</td></tr>
+          <tr><td>Sustainability &amp; Environment</td><td>Green PM, ESG program delivery</td></tr>
+          <tr><td>Finance &amp; Operations</td><td>Budgeting, risk, organizational change</td></tr>
+          <tr><td>Healthcare</td><td>Compliance-driven delivery, systems integration</td></tr>
+          <tr><td>Government &amp; Public Sector</td><td>Regulatory frameworks, public procurement</td></tr>
+          <tr><td>Talent &amp; Leadership</td><td>Workforce development, DEI in PM</td></tr>
+        </tbody>
+      </table>
+
+      <!-- SECTION 6: BOARD ENDORSEMENTS -->
+      <div class="section-title">Board Endorsements</div>
+      <div style="margin-top:16px;">
+
+        <div class="quote-block">
+          <blockquote>"PMiP has always been the conference where real practitioners speak honestly, no vendor pitches, no fluff. That culture is what makes it worth coming back to every year."</blockquote>
+          <div class="quote-attribution">Rich Maltzman, PMP &nbsp;·&nbsp; Co-Chair PMiP 2026</div>
+        </div>
+
+        <div class="quote-block">
+          <blockquote>"The students and professionals who attend PMiP gain access to the kind of industry insight you simply cannot get from a textbook. That exchange between academia and practice is exactly what this conference was designed to create."</blockquote>
+          <div class="quote-attribution">Dr. Vijay Kanabar, PMP, PMI Fellow &nbsp;·&nbsp; Faculty Sponsor</div>
+        </div>
+
+        <div class="quote-block">
+          <blockquote>"What excites me most about PMiP 2026 is how the theme of AI-Powered PM isn't just about tools, it's about people, leadership, and resilience. That's the conversation we need to be having."</blockquote>
+          <div class="quote-attribution">Yolande Athaide, MBA, PMP &nbsp;·&nbsp; Co-Chair PMiP 2026</div>
+        </div>
+
+      </div>
+
+      <!-- SECTION 7: HOW THE BOARD SHAPES THE PROGRAM -->
+      <div class="section-title">How the Board Shapes the Program</div>
+      <div class="about-block" style="margin-top:16px;">
+        <p>The connection between the board's input and what attendees experience on conference day is direct and intentional. Each cycle begins with a board-led environmental scan, members share what they are seeing in their organizations, what questions their teams are wrestling with, and where they believe the profession is underprepared.</p>
+        <p>For PMiP 2026, that process surfaced three dominant themes that now anchor the program: the accelerating integration of AI tools into project delivery, the leadership and change management challenges that come with it, and the strategic alignment questions facing PMOs navigating organizational transformation.</p>
+        <p>The three tracks, <strong>Leadership</strong>, <strong>Technology</strong>, and <strong>Strategy</strong>, were not chosen arbitrarily. They map directly to the domains where board members reported the most urgency. Every accepted paper, every panel, and every keynote was evaluated against the question: does this help a practitioner solve a real problem, today? That standard is the board's most lasting contribution to PMiP.</p>
+      </div>
+
+    </div><!-- end main-col -->
+
+    <!-- ========================================================
+         RIGHT COLUMN — Sidebar
+         ======================================================== -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h4>Event Details</h4>
+        <div class="info-row"><div class="label">Date</div><div class="val" id="conf-date"></div></div>
+        <div class="info-row"><div class="label">Venue</div><div class="val" id="conf-venue"></div></div>
+        <div class="info-row"><div class="label">Format</div><div class="val" id="conf-format"></div></div>
+        <div class="info-row"><div class="label">Hosted by</div><div class="val" id="conf-host"></div></div>
+        <a class="register-btn" id="conf-register" href="registration.html">Register / RSVP ›</a>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html" style="color:inherit;text-decoration:none;">About the PMiP Conference</a></li>
+          <li><a href="agenda.html" style="color:inherit;text-decoration:none;">Full Session Agenda</a></li>
+          <li><a href="speakers.html" style="color:inherit;text-decoration:none;">Distinguished Speakers</a></li>
+          <li><a href="industry-board.html" style="color:inherit;text-decoration:none;">Industry Board Members</a></li>
+          <li><a href="vanguard-forum.html" style="color:inherit;text-decoration:none;">20th Anniversary Forum</a></li>
+          <li><a href="registration.html" style="color:inherit;text-decoration:none;">Register for the Conference</a></li>
+          <li><a href="contact.html" style="color:inherit;text-decoration:none;">Contact the Committee</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box" style="border-top-color:#8a7144;">
+        <h4>About BU MET</h4>
+        <p>For over half a century, Boston University's Metropolitan College has brought scholarly rigor to working adults via innovative, flexible programs — including the flagship Project Management in Practice program.</p>
+        <p><a href="https://www.bu.edu/met" target="_blank" style="color:var(--bu-red);font-size:13px;font-weight:600;">Learn more about BU MET ›</a></p>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     FOOTER — Do not modify
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#">Metropolitan College</a>
+      <a href="#">Boston University</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-copy">© Boston University. All rights reserved. www.bu.edu &nbsp;·&nbsp; Prototype — PMiP Group Project</div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+<!-- ============================================================
+     CONFERENCE CONFIG POPULATION SCRIPT — Do not modify.
+     Reads the CONFERENCE object and fills in sidebar values.
+     To update for a new year, edit the config block in <head>.
+     ============================================================ -->
+<script>
+  document.getElementById("conf-date").textContent   = CONFERENCE.date;
+  document.getElementById("conf-venue").innerHTML    = CONFERENCE.venue;
+  document.getElementById("conf-format").textContent = CONFERENCE.format;
+  document.getElementById("conf-host").textContent   = CONFERENCE.hostedBy;
+  document.getElementById("conf-register").href      = CONFERENCE.registerURL;
+
+  // Add class="conf-year" to any element you want auto-filled with the year
+  document.querySelectorAll(".conf-year").forEach(el => el.textContent = CONFERENCE.year);
+</script>

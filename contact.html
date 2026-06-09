@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Contact | PMiP Conference · Boston University</title>
+
+<!-- ============================================================
+     CONFERENCE CONFIGURATION — UPDATE THIS BLOCK EACH YEAR.
+     This is the ONLY place you need to change year/date info.
+     All pages that use this template will reflect updates made here.
+     ============================================================ -->
+<script>
+  const CONFERENCE = {
+    year:        "2026",
+    theme:       "20th Anniversary Vanguard Forum",
+    date:        "November 6, 2026",
+    venue:       "Boston University<br>Metropolitan College<br>Boston, MA",
+    format:      "In-person · Open to Registrants",
+    hostedBy:    "Dept. of Administrative Sciences, BU MET",
+    registerURL: "registration.html"
+  };
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   MASTER STYLESHEET — PMiP Conference Website
+   DO NOT MODIFY THIS SECTION without team approval.
+   All pages share this CSS. Changes here affect every page.
+   ============================================================ */
+
+/* ── RESET & ROOT ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bu-red:#CC0000;
+  --bu-dark:#1a1a1a;
+  --bu-gray:#4a4a4a;
+  --bu-light:#f5f5f5;
+  --bu-border:#ddd;
+  --bu-gold:#8a7144;
+  --white:#fff;
+  --link:#CC0000;
+}
+body{font-family:'Open Sans',sans-serif;font-size:15px;color:#333;background:#fff;line-height:1.6;}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--bu-dark);padding:6px 0;}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+.topbar a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;}
+.topbar a:hover{color:#fff;}
+.topbar .sep{color:rgba(255,255,255,0.25);margin:0 10px;}
+
+/* ── SITE HEADER ── */
+header{background:var(--bu-red);padding:0;}
+.header-inner{max-width:1100px;margin:0 auto;padding:18px 24px 16px;display:flex;align-items:center;gap:18px;}
+.bu-shield{width:42px;height:42px;background:white;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.bu-shield svg{width:28px;height:28px;}
+.site-title{color:white;}
+.site-title .college{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;margin-bottom:2px;}
+.site-title .name{font-family:'Merriweather',serif;font-size:19px;font-weight:700;line-height:1.2;}
+.site-title .name span{font-weight:400;font-style:italic;}
+
+/* ── NAV ── */
+nav{background:#222;border-bottom:3px solid var(--bu-red);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+nav ul{display:flex;list-style:none;}
+nav ul li{position:relative;}
+nav ul li a{display:block;color:rgba(255,255,255,0.82);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.04em;padding:13px 16px;transition:background 0.15s,color 0.15s;}
+nav ul li a:hover{background:rgba(255,255,255,0.08);color:#fff;}
+nav ul li a.active{color:#fff;background:var(--bu-red);}
+.nav-cta a{background:var(--bu-red);color:white!important;padding:8px 18px!important;border-radius:2px;font-size:12px!important;}
+.nav-cta a:hover{background:#aa0000!important;}
+
+/* ── HERO BANNER ── */
+.hero{position:relative;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);overflow:hidden;padding:56px 24px 48px;}
+.hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Merriweather',serif;font-size:180px;font-weight:700;color:rgba(255,255,255,0.025);white-space:nowrap;pointer-events:none;letter-spacing:-0.05em;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.hero-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bu-red);margin-bottom:14px;background:rgba(204,0,0,0.1);display:inline-block;padding:4px 12px;border-left:3px solid var(--bu-red);}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(24px,4vw,40px);font-weight:700;color:#fff;line-height:1.2;max-width:700px;margin-bottom:12px;}
+.hero h1 em{color:#e8c97e;font-style:italic;font-weight:400;}
+.hero-sub{font-size:14.5px;color:rgba(255,255,255,0.65);max-width:620px;line-height:1.7;margin-bottom:28px;font-weight:300;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:2px;padding:5px 14px;font-size:11.5px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;}
+.pill.red{background:rgba(204,0,0,0.15);border-color:rgba(204,0,0,0.4);color:#f5a0a0;}
+
+/* ── PAGE LAYOUT ── */
+.page-wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+.two-col{display:grid;grid-template-columns:1fr 280px;gap:40px;padding:40px 0 60px;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}}
+
+/* ── SECTION TITLES ── */
+.section-title{font-family:'Merriweather',serif;font-size:22px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;padding-bottom:10px;border-bottom:3px solid var(--bu-red);margin-top:36px;}
+.section-title:first-child{margin-top:0;}
+.section-intro{font-size:14.5px;color:var(--bu-gray);line-height:1.75;margin-bottom:28px;margin-top:12px;}
+
+/* ── PROSE / ABOUT BLOCKS ── */
+.about-block{margin-bottom:36px;}
+.about-block p{font-size:14.5px;line-height:1.8;color:#444;margin-bottom:14px;}
+.about-block p strong{color:var(--bu-dark);}
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box{background:var(--bu-light);border-left:4px solid var(--bu-red);padding:18px 20px;margin-bottom:28px;border-radius:0 4px 4px 0;}
+.highlight-box p{font-size:14px;color:#444;line-height:1.75;margin-bottom:0;}
+.highlight-box p+p{margin-top:10px;}
+
+/* ── SESSIONS / CARDS ── */
+.sessions-list{margin-bottom:36px;}
+.session-item{border:1px solid var(--bu-border);border-left:4px solid var(--bu-red);border-radius:0 4px 4px 0;padding:18px 20px;margin-bottom:14px;background:#fff;}
+.session-item:nth-child(even){border-left-color:var(--bu-gold);}
+.session-num{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--bu-gray);margin-bottom:5px;}
+.session-item h3{font-family:'Merriweather',serif;font-size:15.5px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;line-height:1.35;}
+.session-item p{font-size:13.5px;color:#555;line-height:1.65;margin-bottom:10px;}
+.session-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.tag{font-size:11px;padding:2px 10px;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+.tag.time{background:#f0f0f0;color:#555;}
+.tag.type{background:#FEE;color:var(--bu-red);border:1px solid rgba(204,0,0,0.2);}
+.tag.special{background:#fdf6e3;color:#7a6020;border:1px solid rgba(138,113,68,0.25);}
+
+/* ── AGENDA TABLE ── */
+.agenda-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:36px;}
+.agenda-table th{background:var(--bu-dark);color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+.agenda-table td{padding:11px 14px;border-bottom:1px solid var(--bu-border);vertical-align:top;}
+.agenda-table tr:hover td{background:#fafafa;}
+.agenda-table .time-col{color:var(--bu-red);font-weight:600;white-space:nowrap;width:100px;}
+.agenda-table .event-title{font-weight:600;color:var(--bu-dark);margin-bottom:2px;}
+.agenda-table .event-detail{color:#666;font-size:12.5px;}
+.agenda-table tr.header-row td{background:#f5f5f5;font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--bu-gray);padding:8px 14px;}
+
+/* ── SPEAKER / LEADER CARDS ── */
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:36px;}
+.speaker-card{border:1px solid var(--bu-border);padding:16px;text-align:center;background:#fff;transition:box-shadow 0.15s;}
+.speaker-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+.avatar{width:56px;height:56px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;}
+.av-red{background:#fde8e8;color:var(--bu-red);}
+.av-gray{background:#e8e8e8;color:#444;}
+.av-gold{background:#fdf3dc;color:#7a6020;}
+.av-blue{background:#e4edf9;color:#1a4a8a;}
+.av-green{background:#e5f2e5;color:#2a6a2a;}
+.av-purple{background:#f0eaf8;color:#5a2a8a;}
+.speaker-name{font-weight:700;font-size:13.5px;color:var(--bu-dark);margin-bottom:3px;}
+.speaker-role{font-size:12px;color:#666;line-height:1.4;margin-bottom:8px;}
+.cohort-badge{display:inline-block;font-size:10.5px;padding:2px 10px;background:#f0f0f0;color:#555;border-radius:2px;font-weight:600;letter-spacing:0.04em;}
+.cohort-badge.board{background:#FEE;color:var(--bu-red);}
+.cohort-badge.gold{background:#fdf6e3;color:#7a6020;}
+
+/* ── FORMS ── */
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12.5px;font-weight:600;color:var(--bu-dark);margin-bottom:6px;letter-spacing:0.03em;}
+.form-group input,
+.form-group select,
+.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--bu-border);border-radius:2px;font-family:'Open Sans',sans-serif;font-size:13.5px;color:#333;background:#fff;transition:border 0.15s;}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{outline:none;border-color:var(--bu-red);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-submit{display:inline-block;background:var(--bu-red);color:white;padding:11px 28px;font-size:13px;font-weight:700;letter-spacing:0.05em;border:none;border-radius:2px;text-transform:uppercase;cursor:pointer;transition:background 0.15s;}
+.form-submit:hover{background:#aa0000;}
+
+/* ── SIDEBAR ── */
+.sidebar-box{border:1px solid var(--bu-border);border-top:3px solid var(--bu-red);padding:18px 20px;margin-bottom:22px;background:#fff;}
+.sidebar-box h4{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--bu-dark);margin-bottom:14px;}
+.sidebar-box p{font-size:13px;color:#555;line-height:1.65;margin-bottom:10px;}
+.sidebar-box ul{list-style:none;padding:0;}
+.sidebar-box ul li{font-size:13px;color:#555;padding:6px 0;border-bottom:1px solid #eee;display:flex;align-items:flex-start;gap:8px;}
+.sidebar-box ul li:last-child{border-bottom:none;}
+.sidebar-box ul li::before{content:'›';color:var(--bu-red);font-weight:700;font-size:15px;margin-top:-1px;}
+.register-btn{display:block;background:var(--bu-red);color:white;text-align:center;padding:11px 16px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-decoration:none;border-radius:2px;text-transform:uppercase;margin-top:12px;transition:background 0.15s;}
+.register-btn:hover{background:#aa0000;}
+.info-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+.info-row .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--bu-red);min-width:60px;margin-top:1px;}
+.info-row .val{font-size:13px;color:#444;line-height:1.5;}
+
+/* ── FOOTER ── */
+footer{background:var(--bu-dark);color:rgba(255,255,255,0.5);padding:28px 24px;font-size:12px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;margin-right:18px;}
+.footer-links a:hover{color:rgba(255,255,255,0.8);}
+.footer-copy{font-size:11px;}
+
+/* ============================================================
+   END MASTER STYLESHEET — Page-specific styles go below here
+   ============================================================ */
+
+/* ── CONTACT PAGE SPECIFIC ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px;}
+@media(max-width:600px){.contact-grid{grid-template-columns:1fr;}}
+.contact-card{border:1px solid var(--bu-border);border-left:4px solid var(--bu-red);border-radius:0 4px 4px 0;padding:16px 18px;background:#fff;}
+.contact-card:nth-child(even){border-left-color:var(--bu-gold);}
+.contact-card-role{font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--bu-red);margin-bottom:5px;}
+.contact-card:nth-child(even) .contact-card-role{color:var(--bu-gold);}
+.contact-card-name{font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:var(--bu-dark);margin-bottom:6px;}
+.contact-card-email a{font-size:13px;color:var(--bu-red);text-decoration:none;font-weight:600;}
+.contact-card-email a:hover{text-decoration:underline;}
+.address-block{background:var(--bu-light);border-left:4px solid var(--bu-gold);padding:18px 20px;border-radius:0 4px 4px 0;margin-bottom:28px;}
+.address-block p{font-size:14px;color:#444;line-height:1.85;margin-bottom:0;}
+.address-block a{color:var(--bu-red);text-decoration:none;font-weight:600;}
+.address-block a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR — Do not modify
+     ============================================================ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>
+      <a href="#">Metropolitan College</a>
+      <span class="sep">|</span>
+      <a href="#">Boston University</a>
+      <span class="sep">|</span>
+      <a href="#">Contact Us</a>
+    </span>
+    <a href="#">Livestream ›</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     SITE HEADER — Do not modify
+     ============================================================ -->
+<header>
+  <div class="header-inner">
+    <div class="bu-shield">
+      <svg viewBox="0 0 40 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="44" rx="2" fill="#CC0000"/>
+        <text x="20" y="30" text-anchor="middle" fill="white" font-family="serif" font-size="20" font-weight="bold">BU</text>
+      </svg>
+    </div>
+    <div class="site-title">
+      <div class="college">Boston University · Metropolitan College</div>
+      <div class="name">Symposium on <span>Project Management in Practice</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav>
+  <div class="nav-inner">
+    <ul>
+      <li><a href="index.html">About</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="speakers.html">Speakers</a></li>
+      <li><a href="vanguard-forum.html">20th Anniv Forum</a></li>
+      <li><a href="industry-board.html">Industry Board</a></li>
+      <li><a href="announcements.html">Announcements</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <ul>
+      <li class="nav-cta"><a href="registration.html">Register ›</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO BANNER
+     ============================================================ -->
+<div class="hero">
+  <div class="hero-bg-text">CONTACT</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Boston University · Metropolitan College</div>
+    <h1>Contact the <em>PMiP Committee</em></h1>
+    <p class="hero-sub">Reach the right person — whether you're inquiring about sponsorships, paper submissions, volunteering, or general conference information.</p>
+    <div class="hero-pills">
+      <span class="pill">November 6, 2026</span>
+      <span class="pill">Boston University</span>
+      <span class="pill">20th Anniversary</span>
+      <span class="pill red">Now Accepting Abstracts</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MAIN PAGE CONTENT
+     ============================================================ -->
+<div class="page-wrap">
+  <div class="two-col">
+
+    <div class="main-col">
+
+      <!-- COMMITTEE CONTACTS -->
+      <div class="section-title">Committee Contacts</div>
+      <p class="section-intro">For fastest response, please direct your inquiry to the appropriate contact below. All addresses are monitored by the relevant committee member.</p>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <div class="contact-card-role">Sponsorship &amp; Partnerships</div>
+          <div class="contact-card-name">Michael Reyes</div>
+          <div class="contact-card-email"><a href="mailto:pmip.sponsors@bu.edu">pmip.sponsors@bu.edu</a></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-role">Media &amp; Communications</div>
+          <div class="contact-card-name">Rachel Huang</div>
+          <div class="contact-card-email"><a href="mailto:pmip.media@bu.edu">pmip.media@bu.edu</a></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-role">Paper Submissions &amp; Proceedings</div>
+          <div class="contact-card-name">Dr. Alan Bergström</div>
+          <div class="contact-card-email"><a href="mailto:pmip.submissions@bu.edu">pmip.submissions@bu.edu</a></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-role">Student Ambassadors &amp; Volunteers</div>
+          <div class="contact-card-name">Priya Nair</div>
+          <div class="contact-card-email"><a href="mailto:pmip.volunteers@bu.edu">pmip.volunteers@bu.edu</a></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-role">General Inquiries</div>
+          <div class="contact-card-name">&nbsp;</div>
+          <div class="contact-card-email"><a href="mailto:pmip.conference@bu.edu">pmip.conference@bu.edu</a></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-role">Venue &amp; Logistics</div>
+          <div class="contact-card-name">Tom Callahan</div>
+          <div class="contact-card-email"><a href="mailto:pmip.logistics@bu.edu">pmip.logistics@bu.edu</a></div>
+        </div>
+
+      </div>
+
+      <!-- MAILING ADDRESS -->
+      <div class="section-title">Mailing Address</div>
+      <div class="address-block" style="margin-top:16px;">
+        <p>
+          <strong>Boston University Metropolitan College</strong><br>
+          Department of Administrative Sciences<br>
+          1010 Commonwealth Avenue<br>
+          Boston, MA 02215<br><br>
+          <strong>Phone:</strong> (617) 353-XXXX<br>
+          <strong>Website:</strong> <a href="https://www.bu.edu/met/pm" target="_blank">www.bu.edu/met/pm</a>
+        </p>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="section-title">Send a Message</div>
+      <p class="section-intro">Use the form below for general inquiries. For topic-specific questions, emailing the relevant committee contact above will get you a faster reply.</p>
+
+      <div class="form-group">
+        <label for="contact-name">Full Name</label>
+        <input type="text" id="contact-name" placeholder="e.g. Jane Smith"/>
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email Address</label>
+        <input type="email" id="contact-email" placeholder="e.g. jsmith@example.com"/>
+      </div>
+      <div class="form-group">
+        <label for="contact-topic">Topic</label>
+        <select id="contact-topic">
+          <option value="">— Select a topic —</option>
+          <option>General Inquiry</option>
+          <option>Sponsorship &amp; Partnerships</option>
+          <option>Paper Submissions</option>
+          <option>Media &amp; Communications</option>
+          <option>Venue &amp; Logistics</option>
+          <option>Volunteering</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" placeholder="Please describe your inquiry…"></textarea>
+      </div>
+      <button class="form-submit">Send Message</button>
+
+    </div><!-- end main-col -->
+
+    <!-- ========================================================
+         RIGHT COLUMN — Sidebar
+         ======================================================== -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h4>Event Details</h4>
+        <div class="info-row"><div class="label">Date</div><div class="val" id="conf-date"></div></div>
+        <div class="info-row"><div class="label">Venue</div><div class="val" id="conf-venue"></div></div>
+        <div class="info-row"><div class="label">Format</div><div class="val" id="conf-format"></div></div>
+        <div class="info-row"><div class="label">Hosted by</div><div class="val" id="conf-host"></div></div>
+        <a class="register-btn" id="conf-register" href="registration.html">Register / RSVP ›</a>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html" style="color:inherit;text-decoration:none;">About the PMiP Conference</a></li>
+          <li><a href="agenda.html" style="color:inherit;text-decoration:none;">Full Session Agenda</a></li>
+          <li><a href="speakers.html" style="color:inherit;text-decoration:none;">Distinguished Speakers</a></li>
+          <li><a href="industry-board.html" style="color:inherit;text-decoration:none;">Industry Board Members</a></li>
+          <li><a href="vanguard-forum.html" style="color:inherit;text-decoration:none;">20th Anniversary Forum</a></li>
+          <li><a href="registration.html" style="color:inherit;text-decoration:none;">Register for the Conference</a></li>
+          <li><a href="contact.html" style="color:inherit;text-decoration:none;">Contact the Committee</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box" style="border-top-color:#8a7144;">
+        <h4>About BU MET</h4>
+        <p>For over half a century, Boston University's Metropolitan College has brought scholarly rigor to working adults via innovative, flexible programs — including the flagship Project Management in Practice program.</p>
+        <p><a href="https://www.bu.edu/met" target="_blank" style="color:var(--bu-red);font-size:13px;font-weight:600;">Learn more about BU MET ›</a></p>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     FOOTER — Do not modify
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#">Metropolitan College</a>
+      <a href="#">Boston University</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-copy">© Boston University. All rights reserved. www.bu.edu &nbsp;·&nbsp; Prototype — PMiP Group Project</div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+<!-- ============================================================
+     CONFERENCE CONFIG POPULATION SCRIPT — Do not modify.
+     Reads the CONFERENCE object and fills in sidebar values.
+     To update for a new year, edit the config block in <head>.
+     ============================================================ -->
+<script>
+  document.getElementById("conf-date").textContent   = CONFERENCE.date;
+  document.getElementById("conf-venue").innerHTML    = CONFERENCE.venue;
+  document.getElementById("conf-format").textContent = CONFERENCE.format;
+  document.getElementById("conf-host").textContent   = CONFERENCE.hostedBy;
+  document.getElementById("conf-register").href      = CONFERENCE.registerURL;
+
+  // Add class="conf-year" to any element you want auto-filled with the year
+  document.querySelectorAll(".conf-year").forEach(el => el.textContent = CONFERENCE.year);
+</script>
