@@ -4,6 +4,26 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>About | PMiP Conference · Boston University</title>
+
+<!-- ============================================================
+     CONFERENCE CONFIGURATION — UPDATE THIS BLOCK EACH YEAR.
+     This is the ONLY place you need to change year/date info.
+     All pages that use this template will reflect updates made here.
+     ============================================================ -->
+
+<script>
+  const CONFERENCE = {
+    year:        "2026",
+    theme:       "20th Anniversary Vanguard Forum",
+    date:        "November 6, 2026",
+    venue:       "Boston University<br>Metropolitan College<br>Boston, MA (Venue TBD)",
+    format:      "In-person · Open to Registrants",
+    hostedBy:    "Dept. of Administrative Sciences, BU MET",
+    registerURL: "registration.html"
+  };
+</script>
+
+
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
 /* ── RESET & ROOT ── */
@@ -318,11 +338,11 @@ footer{background:var(--bu-dark);color:rgba(255,255,255,0.5);padding:28px 24px;f
 
       <div class="sidebar-box">
         <h4>Event Details</h4>
-        <div class="info-row"><div class="label">Date</div><div class="val">November 6, 2026</div></div>
-        <div class="info-row"><div class="label">Venue</div><div class="val">TBD · Boston University<br>Metropolitan College<br>Boston, MA</div></div>
-        <div class="info-row"><div class="label">Format</div><div class="val">In-person</div></div>
-        <div class="info-row"><div class="label">Hosted by</div><div class="val">Dept. of Administrative Sciences, BU MET</div></div>
-        <a class="register-btn" href="registration.html">Register / RSVP ›</a>
+        <div class="info-row"><div class="label">Date</div><div class="val" id="conf-date"></div></div>
+        <div class="info-row"><div class="label">Venue</div><div class="val" id="conf-venue"></div></div>
+        <div class="info-row"><div class="label">Format</div><div class="val" id="conf-format"></div></div>
+        <div class="info-row"><div class="label">Hosted by</div><div class="val" id="conf-host"></div></div>
+        <a class="register-btn" id="conf-register" href="registration.html">Register / RSVP ›</a>
       </div>
 
       <div class="sidebar-box">
@@ -366,6 +386,15 @@ footer{background:var(--bu-dark);color:rgba(255,255,255,0.5);padding:28px 24px;f
     <div class="footer-copy">© Boston University. All rights reserved. www.bu.edu &nbsp;·&nbsp; Prototype — PMiP Group Project</div>
   </div>
 </footer>
+
+<script>
+  document.getElementById("conf-date").textContent   = CONFERENCE.date;
+  document.getElementById("conf-venue").innerHTML    = CONFERENCE.venue;
+  document.getElementById("conf-format").textContent = CONFERENCE.format;
+  document.getElementById("conf-host").textContent   = CONFERENCE.hostedBy;
+  document.getElementById("conf-register").href      = CONFERENCE.registerURL;
+  document.querySelectorAll(".conf-year").forEach(el => el.textContent = CONFERENCE.year);
+</script>
 
 </body>
 </html>

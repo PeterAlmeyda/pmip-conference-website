@@ -101,7 +101,7 @@ All pages must be in the same root folder for navigation links to work correctly
 | Pedro Almeyda | QA / Engineer Lead | Template, Prompts, Homepage, Registration, Announcements, README, GitHub Repository |
 | Andre Bet-Warda | Team Member | Burnup Chart |
 | Stephanie Pollich | Team Member | Conclusions, Resource Management |
-| Prof. Vijay Kanabar | Professor & Project Sponsor | — |
+| Prof. Vijay Kanabar | Professor & Project Sponsor |
 
 ---
 
